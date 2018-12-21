@@ -26,6 +26,8 @@ massive(CONNECTION_STRING).then(db => {
     })
 })
 
+// ============================================================================================
+// ============================================================================================
 
 // SIGNUP OR REGISTER
 app.post('/auth/register', async (req, res) => {
@@ -125,8 +127,26 @@ app.get('/logout', (req, res) => {
 })
 
 
+// ============================================================================================
+// ============================================================================================
+// Getting Dev Apps
+app.get('/dev/get-devapps/:dev_id', async (req, res) => {
+    let { dev_id } = req.params
+    console.log(dev_id)
+    let db = req.app.get('db')
+    let getDevApp = await db.get_devapps([dev_id])
+    // console.log(getDevApp)
+    // let DevApp = getDevApp[0]
+    res.status(200).send(getDevApp)
+})
 
 
+
+
+
+
+
+// ============================================================================================
 // ADD AN APP MANUALLY
 app.post('/dev/addapp', async (req, res) => {
     let { dev_id, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags, appId, appLink } = req.body
@@ -134,11 +154,8 @@ app.post('/dev/addapp', async (req, res) => {
     console.log({ dev_id, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags, appId })
     let createApp = await db.create_app([dev_id, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags, appLink, appId])
     let app = createApp[0]
-    res.status(200).send({app, message:'App Successfully Added'})
+    res.status(200).send({ app, message: 'App Successfully Added' })
 })
-
-
-
 
 
 // ===============================

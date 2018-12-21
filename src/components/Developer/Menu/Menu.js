@@ -20,6 +20,9 @@ class Menu extends Component {
             <Link to='/dev/devinfo'>
                 <p>Developer Info</p>
             </Link>
+            <Link to='/dev/addedapps'>
+                <p>Your Apps</p>
+            </Link>
             </div>
           </div>
       )

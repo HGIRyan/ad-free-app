@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import AddApp from './addApp/AddApp'
 import Menu from './Menu/Menu'
 import DevInfo from './DevInfo'
+import AddedApps from './addApp/AddedApps'
 
 
 class Developer extends Component {
@@ -36,7 +37,7 @@ class Developer extends Component {
                         <Switch>
                             <Route component={AddApp} path='/dev/addapp'/>
                             <Route component={DevInfo} path='/dev/devinfo'/>
-
+                            <Route component={AddedApps} path='/dev/addedapps'/>
                         </Switch>
                         <Menu/>
                         <a href='http://localhost:4000/logout'>

@@ -20,6 +20,8 @@ class DevInfo extends Component {
                 <hr/>
                 {this.props.developer}
                 <hr/>
+                {this.props.dev_id}
+                <hr/>
             </div>
         )
     }
