@@ -1,0 +1,41 @@
+/* IPHONE X and 6Plus and 6 */
+@media only screen and (max-width: 450px) {
+.userComponents {
+    height: auto;
+    width: 100vw;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+.MenuBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5%;
+    font-size: 1.5em;
+    background-color: red;
+
+}
+.today {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2em;
+}
+.headerImg {
+    display: flex;
+    max-height: 40px;
+}
+} 
+
+/* Tablets */
+@media only screen and (min-width: 451px) {
+
+} 
+
