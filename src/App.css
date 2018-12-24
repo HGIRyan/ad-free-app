@@ -1,3 +1,7 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
 /* START OF RESET */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -48,6 +52,7 @@ table {
 	border-spacing: 0;
 }
 /* END OF RESET */
+
 
 .renewal {
 	display: flex;

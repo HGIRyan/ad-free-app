@@ -5,6 +5,7 @@ const session = require('express-session')
 const bcrypt = require('bcryptjs')
 const massive = require('massive')
 const axios = require('axios')
+const apiTests = require('./controllers/apiTest')
 
 const app = express();
 app.use(express.json())
@@ -170,9 +171,15 @@ app.post('/dev/getapp', (req, res) => {
     console.log(JWT_1)
     axios({
         method: 'get',
-        url: `https://api.apptweak.com/ios/applications/${appId}.json`,
+        url: `https://api.apptweak.com/applications/${appId}.json?country=us&language=us&device=iphone`,
         headers: { 'X-Apptweak-Key': JWT_1 }
-    }).then(response => {
-        res.status(200).send(response.data, console.log(resp.data))
+    }).then(resp => {
+        res.status(200).send(resp.data)
+         console.log(resp.data.content)
     })
+    // .catch(err => {
+    //     res.status(400).send(console.log('ERROR:::',  err.resp.data))}
+    // )
 })
+
+// app.get('/api/apitest',apiTests.apiTest)

@@ -9,18 +9,6 @@ class AddedApps extends Component {
 
         this.state = {
             appInfo: [],
-            // appLink: '',
-            // appName: '',
-            // app_description: '',
-            // current_rating: '',
-            // iconImg: '',
-            // img1: '',
-            // img2: '',
-            // img3: '',
-            // img4: '',
-            // img5: '',
-            // img6: '',
-            // tags: '',
         }
     }
     componentDidMount() {
