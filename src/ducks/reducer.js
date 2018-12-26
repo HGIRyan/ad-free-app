@@ -4,7 +4,7 @@ const initialState = {
     username: '',
     autoRenew: '',
     renewalPeriod: '',
-    isDev: true,
+    isDev: false,
     developer:'',
     dev_id:''
 }

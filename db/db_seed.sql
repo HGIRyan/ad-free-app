@@ -79,4 +79,10 @@ values
 select * from users 
 where user_username = $1;
 
+-- SEARCH
+select * from apps where
+app_name ILIKE '%$1%' 
+or 
+tags ILIKE '%$1%' 
+
 -- 

@@ -12,6 +12,7 @@ import TodayView from './TodayView/TodayView'
 import Games from './Games/Games'
 import Apps from './AppGenre/Apps'
 import Search from './Search/Search'
+import SearchResults from './Search/SearchResults'
 
 class User extends Component {
     async componentDidMount() {
@@ -30,7 +31,7 @@ class User extends Component {
             <div>
                 {this.props.user_id ?
                     <div>
-                        {screenSize > 8000 ?
+                        {screenSize > 800 ?
                             <div><h1>You are a developer, Please Use our Desktop Page 'LINK'</h1></div>
                             :
                             <div>
@@ -38,7 +39,8 @@ class User extends Component {
                                     <Route component={TodayView} path='/user/today' />
                                     <Route component={Games} path='/user/games' />
                                     <Route component={Apps} path='/user/apps' />
-                                    <Route component={Search} path='/user/search' />
+                                    <Route component={Search} path='/user/search' exact />
+                                    <Route component={SearchResults} path='/user/search/results' />
                                 </Switch>
                                 <MenuBar />
                             </div>

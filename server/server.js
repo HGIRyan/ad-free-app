@@ -142,11 +142,6 @@ app.get('/dev/get-devapps/:dev_id', async (req, res) => {
 })
 
 
-
-
-
-
-
 // ============================================================================================
 // ADD AN APP MANUALLY
 app.post('/dev/addapp', async (req, res) => {
@@ -175,7 +170,7 @@ app.post('/dev/getapp', (req, res) => {
         headers: { 'X-Apptweak-Key': JWT_1 }
     }).then(resp => {
         res.status(200).send(resp.data)
-         console.log(resp.data.content)
+        console.log(resp.data.content)
     })
     // .catch(err => {
     //     res.status(400).send(console.log('ERROR:::',  err.resp.data))}
@@ -183,3 +178,23 @@ app.post('/dev/getapp', (req, res) => {
 })
 
 // app.get('/api/apitest',apiTests.apiTest)
+
+
+
+
+
+
+
+
+
+// ===============================
+// ===============================
+// USER STUFF
+app.get('/user/search/:searchchar', async (req, res) => {
+    let { searchchar } = req.params
+    console.log(searchchar)
+    let db = req.app.get('db')
+    let getApp = await db.search_apps([searchchar])
+    console.log(getApp)
+    res.status(200).send(getApp)
+})

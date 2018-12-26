@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
-export default class MenuBar extends Component {
+class MenuBar extends Component {
     render() {
         return (
-            <div className='MenuBar' >
-            <Link to='/user/today'>
-                <p>Today</p>
-            </Link>
-            <Link to='/user/games'>
-                <p>Games</p>
-            </Link>
-            <Link to='/user/apps'>
-                <p>Apps</p>
-            </Link>
-            <Link to='/user/search'>
-                <p>Search</p>
-            </Link>
+            <div>
+                {this.props.location.pathname === '/user/search/results' ? null :
+                    <div className='MenuBar' >
+                        <Link to='/user/today'>
+                            <p>Today</p>
+                        </Link>
+                        {console.log(this.props.location.pathname)}
+                        <Link to='/user/games'>
+                            <p>Games</p>
+                        </Link>
+                        <Link to='/user/apps'>
+                            <p>Apps</p>
+                        </Link>
+                        <Link to='/user/search'>
+                            <p>Search</p>
+                        </Link>
+                    </div>
+                }
             </div>
         )
     }
 }
+function mapPropsToState(state) {
+    return { ...state }
+}
+const MenuBarWithLocation = withRouter(MenuBar)
+export default connect(mapPropsToState)(MenuBarWithLocation);

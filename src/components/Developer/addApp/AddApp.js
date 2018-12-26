@@ -49,7 +49,7 @@ class AddApp extends Component {
         let { appId } = this.state
         let res = await axios.post('/dev/getapp', { appId })
         let appDetails = res.data.content.store_info
-        let appName = res.data.content.developer.name
+        let appName = res.data.content.store_info.title
         if (res) {
             this.setState({
                 appName: appName,
@@ -60,10 +60,10 @@ class AddApp extends Component {
                 img3: appDetails.screenshots.iphone6plus[2].url,
                 img4: appDetails.screenshots.iphone6plus[3].url
             })
+            console.log(res.data)
         } else {
 
         }
-        console.log(res.data)
     }
     async preview() {
         await this.splitter()
@@ -77,7 +77,7 @@ class AddApp extends Component {
         let res = await axios.post('/dev/addapp', { dev_id, appId, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags, appLink })
         console.log(res)
         this.setState({
-            message: res.data.message, auto: false
+            message: res.data.message
         })
     }
 
@@ -94,7 +94,7 @@ class AddApp extends Component {
             <div>
                 <button onClick={(e) => this.setState(prevState => ({ auto: !prevState.auto }))}>Manual</button>
                 {this.state.auto ?
-                    
+
                     <div>
                         {this.props.developer}
                         <h1>Add An App Here: <input onChange={(e) => { this.setState({ appLink: e.target.value }) }} type='text' /> </h1>
@@ -149,6 +149,7 @@ class AddApp extends Component {
                         </Slider>
                     </div>
                     {tags}
+                    <button onClick={() => this.addApp()}>addApp</button>
                 </div>
                 <hr />
                 <a href='https://www.apple.com/us/search' target='_blank' rel="noopener noreferrer"><p>
