@@ -28,11 +28,14 @@ class App extends Component {
     let { isDev } = this.props
     // console.log(isDev)
     return (
-      <HashRouter>
+      <HashRouter className='App'>
         <Switch>
+          {/* LOGIN CHECKS CREDINCIALS 
+          ALWAYS CALLS L*/}
           <Route component={Login} path='/' exact />
+          {/* REGISTER CREATES NEW USER */}
           <Route component={Register} path='/register' />
-          {isDev === true ?
+          {isDev === true ? 
             <Route component={Developer} path='/dev' />
             :
             <Route component={User} path='/user' />

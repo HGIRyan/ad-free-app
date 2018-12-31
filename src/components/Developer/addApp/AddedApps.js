@@ -3,6 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import Apps from './Apps'
 
+
 class AddedApps extends Component {
     constructor() {
         super()
@@ -20,7 +21,6 @@ class AddedApps extends Component {
         let res = await axios.get(`/dev/get-devapps/${dev_id}`)
         this.setState({
             appInfo: res.data
-
         })
     }
 

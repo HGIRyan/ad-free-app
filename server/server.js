@@ -52,7 +52,6 @@ app.post('/auth/register', async (req, res) => {
         let dev = createdDev[0]
         req.session.dev = { developer: dev.developer_name, dev_details: dev.developer_details, dev_id: dev.developer_id }
         // console.log('Dev', dev)
-
     }
     req.session.user = { id: user.user_id, email: user.user_email, username: user.user_username, autoRenew: user.user_autorenewal, renewalPeriod: user.user_renewalperiod, isDev: user.user_isdev }
     // console.log(req.session.user)
@@ -156,7 +155,10 @@ app.post('/dev/addapp', async (req, res) => {
 
 // ===============================
 // ===============================
-// GET FROM API
+// Description - 
+// Input - appId 1
+// Output - resp.data
+// Send to Front
 // ===============================
 // ===============================
 app.post('/dev/getapp', (req, res) => {
@@ -167,6 +169,7 @@ app.post('/dev/getapp', (req, res) => {
     axios({
         method: 'get',
         url: `https://api.apptweak.com/applications/${appId}.json?country=us&language=us&device=iphone`,
+        // JWT is the APPTWEAK Key
         headers: { 'X-Apptweak-Key': JWT_1 }
     }).then(resp => {
         res.status(200).send(resp.data)
@@ -190,6 +193,7 @@ app.post('/dev/getapp', (req, res) => {
 // ===============================
 // ===============================
 // USER STUFF
+
 app.get('/user/search/:searchchar', async (req, res) => {
     let { searchchar } = req.params
     console.log(searchchar)
@@ -197,4 +201,99 @@ app.get('/user/search/:searchchar', async (req, res) => {
     let getApp = await db.search_apps([searchchar])
     console.log(getApp)
     res.status(200).send(getApp)
+})
+
+// ===============================
+// GET GAMES
+// ===============================
+// GET NEWAPP1 & NEWAPP2
+
+// NEWAPP1
+app.get('/user/games/newapp1/:newapp1', async (req, res) => {
+    let { newapp1 } = req.params
+    // console.log(newapp1);
+    console.log('Payton')
+    let db = req.app.get('db')
+    let getApp1 = await db.get_newApp([newapp1])
+    let getApp = getApp1[0]
+    res.status(200).send(getApp)
+})
+// NEWAPP2
+
+app.get('/user/games/newapp2/:newapp2', async (req, res) => {
+    let { newapp2 } = req.params
+    // console.log(newapp2);
+    let db = req.app.get('db')
+    let getApp2 = await db.get_newApp([newapp2])
+    let getApp = getApp2[0]
+    res.status(200).send(getApp)
+})
+
+// NEW UPDATE 1
+app.get('/user/games/newupdate1/:newupdate1', async (req, res) => {
+    let { newupdate1 } = req.params
+    // console.log(newupdate1);
+    let db = req.app.get('db')
+    let getApp2 = await db.get_newApp([newupdate1])
+    let getApp = getApp2[0]
+    res.status(200).send(getApp)
+})
+
+// NEW UPDATE 2
+app.get('/user/games/newupdate2/:newupdate2', async (req, res) => {
+    let { newupdate2 } = req.params
+    console.log(newupdate2);
+    let db = req.app.get('db')
+    let getApp2 = await db.get_newApp([newupdate2])
+    let getApp = getApp2[0]
+    res.status(200).send(getApp)
+})
+
+
+// Slide 3 Suggested Games
+
+app.get('/user/games/tags/:tags', async (req, res) => {
+    let { tags } = req.params;
+    console.log('hslijahdkjweliueb')
+    console.log(tags)
+    let db = req.app.get('db');
+    let getGame = await db.get_3Game([tags])
+    res.status(200).send(getGame)
+})
+
+
+
+
+// ===============================
+// ===============================
+// DEV STUFF
+
+
+
+// ===============================
+// UPDATE DEV INFO
+
+// USERNAME
+app.put('/dev/updateinfo/username', async (req, res) => {
+    let { user_id, username } = req.body;
+    console.log(user_id, username)
+    let db = req.app.get('db');
+    await db.update_userName([user_id, username])
+    res.sendStatus(200)
+})
+// EMAIL
+app.put('/dev/updateinfo/email', async (req, res) => {
+    let { user_id, email } = req.body;
+    console.log(user_id, email)
+    let db = req.app.get('db');
+    await db.update_userEmail([user_id, email])
+    res.sendStatus(200)
+})
+// DEV Company Name
+app.put('/dev/updateinfo/developer', async (req, res) => {
+    let { user_id, developer } = req.body;
+    console.log(user_id, developer)
+    let db = req.app.get('db');
+    await db.update_devName([user_id, developer])
+    res.sendStatus(200)
 })
