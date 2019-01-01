@@ -12,16 +12,48 @@ class NewApp extends Component {
             newUpdates1: [],
             newUpdates2: [],
             newapp1: 'hay day',
-            newapp2: 'Swing star',
+            newapp2: 'PUBG MOBILE',
             newupdate1: 'clash of clans',
             newupdate2: 'minecraft',
 
         }
     }
-    componentDidMount() {
-        this.getNewApp()
-        this.getNewUpdate()
+    async componentDidMount() {
+        await this.getNewApp()
+        await this.getNewUpdate()
+        this.incrementView()
     }
+    async incrementView() {
+        let { newApps1, newApps2, newUpdates1, newUpdates2 } = this.state
+        // console.log(newApps1)
+        console.log('newApps1')
+        let newapps1 = newApps1.app_id
+        await axios.post(`/user/view/1`, { newapps1 })
+        // console.log(newapps1)
+        let newapps2 = newApps2.app_id
+        await axios.post(`/user/view/2`, { newapps2 })
+        let newupdates1 = newUpdates1.app_id
+        await axios.post(`/user/view/3`, { newupdates1 })
+        let newupdates2 = newUpdates2.app_id
+        await axios.post(`/user/view/4`, { newupdates2 })
+    }
+    incrementDownloadNewApps1() {
+        let appid = this.state.newApps1.app_id
+        axios.post(`/user/download/1`, {appid})
+    }
+    incrementDownloadNewApps2() {
+        let appid = this.state.newApps2.app_id
+        axios.post(`/user/download/2`, {appid})
+    }
+    incrementDownloadNewUpdate1() {
+        let appid = this.state.newUpdates1.app_id
+        axios.post(`/user/download/3`, {appid})
+    }
+    incrementDownloadNewUpdate2() {
+        let appid = this.state.newUpdates2.app_id
+        axios.post(`/user/download/4`, {appid})
+    }
+
     async getNewApp() {
         let { newapp1, newapp2 } = this.state;
         let res1 = await axios.get(`/user/games/newapp1/${newapp1}`)
@@ -64,21 +96,42 @@ class NewApp extends Component {
                             <img src={newApps1.iconimg} alt={newApps1.app_name} />
                             {/* <p>{newApps1.app_description}</p> */}
                             <a href={newApps1.app_link}>
-                                GET HERE
+                                <button onClick={() => { this.incrementDownloadNewApps1() }}>GET HERE</button>
                             </a>
                         </div>
                     </div>
                     <div>
-                        <h1>{newApps2.app_name}</h1>
-                        <img src={newApps2.iconimg} alt={newApps2.app_name} />
+                    <img src={newApps2.img1} alt={newApps2.app_name} />
+                        <div>
+                            <h1>{newApps2.app_name}</h1>
+                            <img src={newApps2.iconimg} alt={newApps2.app_name} />
+                            {/* <p>{newApps2.app_description}</p> */}
+                            <a href={newApps2.app_link}>
+                                <button onClick={() => { this.incrementDownloadNewApps2() }}>GET HERE</button>
+                            </a>
+                        </div>
                     </div>
                     <div>
-                        <h1>{newUpdates1.app_name}</h1>
-                        <img src={newUpdates1.iconimg} alt={newUpdates1.app_name} />
+                    <img src={newUpdates1.img1} alt={newUpdates1.app_name} />
+                        <div>
+                            <h1>{newUpdates1.app_name}</h1>
+                            <img src={newUpdates1.iconimg} alt={newUpdates1.app_name} />
+                            {/* <p>{newUpdates1.app_description}</p> */}
+                            <a href={newUpdates1.app_link}>
+                                <button onClick={() => { this.incrementDownloadNewUpdate1() }}>GET HERE</button>
+                            </a>
+                        </div>
                     </div>
                     <div>
-                        <h1>{newUpdates2.app_name}</h1>
-                        <img src={newUpdates2.iconimg} alt={newUpdates2.app_name} />
+                    <img src={newUpdates2.img1} alt={newUpdates2.app_name} />
+                        <div>
+                            <h1>{newUpdates2.app_name}</h1>
+                            <img src={newUpdates2.iconimg} alt={newUpdates2.app_name} />
+                            {/* <p>{newUpdates2.app_description}</p> */}
+                            <a href={newUpdates2.app_link}>
+                                <button onClick={() => { this.incrementDownloadNewUpdate2() }}>GET HERE</button>
+                            </a>
+                        </div>
                     </div>
                 </Slider>
             </div>

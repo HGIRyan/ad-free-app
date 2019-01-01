@@ -6,7 +6,8 @@ const initialState = {
     renewalPeriod: '',
     isDev: false,
     developer:'',
-    dev_id:''
+    dev_id:'',
+    chartData:{}
 }
 
 // DEFINE
@@ -18,11 +19,19 @@ const UPDATEUSER_RENEWALPERIOD = 'UPDATEUSER_RENEWALPERIOD'
 const UPDATE_ISDEV = 'UPDATE_ISDEV'
 const UPDATE_DEVELOPER = 'UPDATE_DEVELOPER'
 const UPDATE_DEVID = 'UPDATE_DEVID'
+const UPDATE_CHARTDATA = 'UPDATE_CHARTDATA'
 const RESET_STATE = 'RESET_STATE'
+const DATA_DUMP = 'DATA_DUMP'
 
 
 
 // FUNCTION
+export function dataDump(user_id) {
+    return {
+        type: DATA_DUMP,
+        payload: user_id
+    }
+}
 export function update_user_id(user_id) {
     return {
         type: UPDATEUSER_ID,
@@ -71,6 +80,12 @@ export function update_devid(dev_id) {
         payload: dev_id
     }
 }
+export function update_chartData(chartData) {
+    return {
+        type: UPDATE_CHARTDATA,
+        payload: chartData
+    }
+}
 
 export function resetState() {
     return {
@@ -97,8 +112,12 @@ export default function reducer(state = initialState, action) {
             return { ...state, developer: action.payload }
         case UPDATE_DEVID:
             return { ...state, dev_id: action.payload }
+        case UPDATE_CHARTDATA:
+            return { ...state, chartData: action.payload }
         case RESET_STATE:
             return { user_id: 0, email: '', username: '', autoRenew: '', renewalPeriod: '', }
+            case DATA_DUMP:
+            return {...state, ...action.payload}
         default:
             return state;
     }

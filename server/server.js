@@ -10,7 +10,7 @@ const apiTests = require('./controllers/apiTest')
 const app = express();
 app.use(express.json())
 app.use(express.static(__dirname + './../build'))
-let { SERVER_PORT, CONNECTION_STRING, SECRET, DEV, JWT_1 } = process.env;
+let { SERVER_PORT, CONNECTION_STRING, SECRET, JWT_1 } = process.env;
 
 // SETUP
 app.use(session({
@@ -80,7 +80,7 @@ app.post('/auth/login', async (req, res) => {
         let userInfo = await db.get_user_info([username])
         let user = userInfo[0]
         // console.log(user.user_isdev)
-        req.session.user = { id: user.user_id, email: user.user_email, username: user.user_username, autoRenew: user.user_autorenewal, renewalPeriod: user.user_renewalperiod, isDev: user.user_isdev }
+        req.session.user = { user_id: user.user_id, email: user.user_email, username: user.user_username, autoRenew: user.user_autorenewal, renewalPeriod: user.user_renewalperiod, isDev: user.user_isdev }
         if (user.user_isdev === true) {
             // console.log('Got Here')
             let devInfo = await db.check_dev([user.user_id])
@@ -103,6 +103,7 @@ app.post('/auth/login', async (req, res) => {
 
 
 app.get('/api/user-data', (req, res) => {
+    console.log(req.session.user)
     if (req.session.user) {
         res.status(200).send(req.session.user)
     } else {
@@ -295,5 +296,96 @@ app.put('/dev/updateinfo/developer', async (req, res) => {
     console.log(user_id, developer)
     let db = req.app.get('db');
     await db.update_devName([user_id, developer])
+    res.sendStatus(200)
+})
+
+
+
+
+// ===============================
+// ===============================
+// Increments for Apps
+// Expected 
+//     Input - app_id
+//      Output - none
+// HARDCODED DISPLAY APPS
+app.post(`/user/view/1`, async (req, res) => {
+    let { newapps1 } = req.body
+    let db = req.app.get('db')
+    console.log(newapps1)
+    await db.incrementView([newapps1])
+    res.sendStatus(200)
+})
+app.post(`/user/view/2`, async (req, res) => {
+    let { newapps2 } = req.body
+    let db = req.app.get('db')
+    console.log(newapps2)
+    await db.incrementView([newapps2])
+    res.sendStatus(200)
+})
+app.post(`/user/view/3`, async (req, res) => {
+    let { newupdates1 } = req.body
+    let db = req.app.get('db')
+    console.log(newupdates1)
+    await db.incrementView([newupdates1])
+    res.sendStatus(200)
+})
+app.post(`/user/view/4`, async (req, res) => {
+    let { newupdates2 } = req.body
+    let db = req.app.get('db')
+    console.log(newupdates2)
+    await db.incrementView([newupdates2])
+    res.sendStatus(200)
+})
+// DOWNLOAD COUNT HARDCODE
+app.post(`/user/download/1`, async (req, res) => {
+    let { appid } = req.body;
+    let db = req.app.get('db');
+    console.log(appid);
+    await db.incrementDownload([appid])
+    res.sendStatus(200)
+})
+app.post(`/user/download/2`, async (req, res) => {
+    let { appid } = req.body;
+    let db = req.app.get('db');
+    console.log(appid);
+    await db.incrementDownload([appid])
+    res.sendStatus(200)
+})
+app.post(`/user/download/3`, async (req, res) => {
+    let { appid } = req.body;
+    let db = req.app.get('db');
+    console.log(appid);
+    await db.incrementDownload([appid])
+    res.sendStatus(200)
+})
+app.post(`/user/download/4`, async (req, res) => {
+    let { appid } = req.body;
+    let db = req.app.get('db');
+    console.log(appid);
+    await db.incrementDownload([appid])
+    res.sendStatus(200)
+})
+
+// NON HARDCODED DOWNLOAD/VIEW COUNTS
+// VIEW COUNTER
+// Expected
+// Input - appid
+// Output - none
+
+// VIEW COUNT
+app.post(`/user/view/dynamic`, async (req, res) => {
+    let { appid } = req.body;
+    let db = req.app.get('db');
+    console.log(req.body)
+    await db.incrementView([appid])
+    res.sendStatus(200)
+})
+// DOWNLOADCOUNT
+app.post(`/user/download/dynamic`, async (req, res) => {
+    let { appid } = req.body;
+    let db = req.app.get('db');
+    console.log(req.body)
+    await db.incrementDownload([appid])
     res.sendStatus(200)
 })

@@ -24,6 +24,7 @@ export default class Games extends Component {
 
 
     render() {
+        console.log('games.js')
         return (
             <div>
                 {this.state.loaded ?

@@ -17,10 +17,10 @@ import Login from './components/Login/Login'
 import Register from './components/Login/Register'
 
 class App extends Component {
-  async componentDidMount() {
+  async componentDidMount() { 
     // console.log('component mounted')
     let res = await axios.get('/api/user-data')
-    console.log(res)
+    console.log('EAT ME')
     this.props.update_isDev(res.data.isDev)
     // this.props.update_developer(res.data.developer)
   }
@@ -40,7 +40,7 @@ class App extends Component {
             :
             <Route component={User} path='/user' />
           }
-          <a href='http://localhost:4000/logout'>
+          <a href='/logout'>
             <button className='navBar-button' onClick={(e) => { resetState() }}> Log Out </button>
           </a>
           {this.props.username}

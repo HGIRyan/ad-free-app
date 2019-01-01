@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import AppChart from './AppChart'
 import { update_username, update_user_email, update_developer, } from './../../ducks/reducer'
 import axios from 'axios'
 
 
 class DevInfo extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             username: false,
             upUsername: '',
@@ -16,7 +17,7 @@ class DevInfo extends Component {
             upDeveloper: ''
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
             upUsername: this.props.username,
             upEmail: this.props.email,
@@ -94,6 +95,9 @@ class DevInfo extends Component {
                 <hr />
                 {this.props.dev_id}
                 <hr />
+                <div>
+                    <AppChart chartData={this.props.chartData}/>
+                </div>
             </div>
         )
     }

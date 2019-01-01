@@ -35,7 +35,22 @@ create table apps (
     tags text, 
     other_details TEXT
 );
+-- CREATING APP_DATA TABLE FOR CHARTS
+CREATE TABLE app_data (
+    counter_id serial primary key not null,
+    app_id INTEGER REFERENCES apps (app_id),
+    view_render INTEGER,
+    download INTEGER,
+    time_of TIMESTAMPTZ default current_date
+)
 
+-- CREATE DOWNLOAD INCREMENTS FOR CHARTS
+INSERT INTO app_data (
+    app_id, download
+)
+values (
+$1, 1
+)
 
 --  CREATING USERS ACCOUNTS
 

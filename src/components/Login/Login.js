@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { update_username, update_user_id, update_user_email, update_autoRenewal, update_renewalPeriod, update_isDev, update_developer  } from './../../ducks/reducer'
+import { dataDump, update_username, update_user_id, update_user_email, update_autoRenewal, update_renewalPeriod, update_isDev, update_developer  } from './../../ducks/reducer'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
@@ -21,21 +21,23 @@ class Login extends Component {
         let res = await axios.post('/auth/login', { username, password })
         if (res.data.loggedIn && res.data.sessionUser.isDev) {
             this.props.history.push('/dev')
-            this.props.update_user_id(res.data.sessionUser.id)
-            this.props.update_user_email(res.data.sessionUser.email)
-            this.props.update_username(res.data.sessionUser.username)
-            this.props.update_isDev(res.data.sessionUser.isDev)
-            console.log(res.data.sessionUser.isDev)
-            this.props.update_developer(res.data.sessionUser.developer)
+            this.props.dataDump(res.data.sessionUser)
+            // this.props.update_user_id(res.data.sessionUser.id)
+            // this.props.update_user_email(res.data.sessionUser.email)
+            // this.props.update_username(res.data.sessionUser.username)
+            // this.props.update_isDev(res.data.sessionUser.isDev)
+            // console.log(res.data.sessionUser.isDev)
+            // this.props.update_developer(res.data.sessionUser.developer)
         } else if(res.data.loggedIn){
             console.log(res.data)
             console.log(res.data.sessionUser.isDev)
             this.props.history.push('/user/today')
-            this.props.update_user_id(res.data.sessionUser.id)
-            this.props.update_username(res.data.sessionUser.username)
-            this.props.update_user_email(res.data.sessionUser.email)
-            this.props.update_autoRenewal(res.data.sessionUser.autoRenew)
-            this.props.update_renewalPeriod(res.data.sessionUser.renewalPeriod)
+            this.props.dataDump(res.data.sessionUser)
+            // this.props.update_user_id(res.data.sessionUser.id)
+            // this.props.update_username(res.data.sessionUser.username)
+            // this.props.update_user_email(res.data.sessionUser.email)
+            // this.props.update_autoRenewal(res.data.sessionUser.autoRenew)
+            // this.props.update_renewalPeriod(res.data.sessionUser.renewalPeriod)
         }
         this.setState({ username: '', password: '', message: res.data.message })
     }   
@@ -59,5 +61,5 @@ class Login extends Component {
     }
 }
 
-export default connect(null, { update_username, update_user_id, update_user_email, update_autoRenewal, update_renewalPeriod, update_isDev, update_developer   })(Login)
+export default connect(null, { dataDump, update_username, update_user_id, update_user_email, update_autoRenewal, update_renewalPeriod, update_isDev, update_developer   })(Login)
 // export default Auth

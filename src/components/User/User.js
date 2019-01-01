@@ -15,18 +15,25 @@ import Search from './Search/Search'
 import SearchResults from './Search/SearchResults'
 
 class User extends Component {
-    async componentDidMount() {
-        console.log('component mounted')
-        let res = await axios.get('/api/user-data')
-        console.log(res)
-        this.props.update_user_id(res.data.id)
-        this.props.update_user_email(res.data.email)
-        this.props.update_username(res.data.username)
-        this.props.update_isDev(res.data.isDev)
-        // this.props.update_developer(res.data.developer)
+    constructor(){
+        super()
+        this.state={
+            hasRan: false
+        }
     }
+    // async componentWillMount() {
+    //     console.log('component mounted8')
+    //     let res = await axios.get('/api/user-data')
+    //     console.log(res)
+    //     this.props.update_user_id(res.data.id)
+    //     this.props.update_user_email(res.data.email)
+    //     this.props.update_username(res.data.username)
+    //     this.props.update_isDev(res.data.isDev)
+    //     // this.props.update_developer(res.data.developer)
+    // }
     render() {
         let screenSize = window.innerWidth
+        console.log(this.state,this.props)
         return (
             <div>
                 {this.props.user_id ?
@@ -49,7 +56,7 @@ class User extends Component {
                     :
                     <div>Please Die
                         <a href='http://localhost:4000/logout'>
-                            <button className='navBar-button' onClick={(e) => { resetState() }}> Log In Here </button>
+                            <button className='navBar-button' onClick={() => { resetState() }}> Log In Here </button>
                         </a>
                     </div>
                 }
