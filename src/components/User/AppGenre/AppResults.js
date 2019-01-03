@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 // import Slider from 'react-slick'
 
-class GameResults extends Component {
+class AppResults extends Component {
     constructor() {
         super()
         this.state = {
@@ -42,7 +42,7 @@ class GameResults extends Component {
     }
 }
 
-export default GameResults;
+export default AppResults;
 
     // function GameResults(props) {
     //     let { appLink, appName, app_description, current_rating, iconImg, img1, tags } = props

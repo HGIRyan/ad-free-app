@@ -103,7 +103,7 @@ app.post('/auth/login', async (req, res) => {
 
 
 app.get('/api/user-data', (req, res) => {
-    console.log(req.session.user)
+    // console.log(req.session.user)
     if (req.session.user) {
         res.status(200).send(req.session.user)
     } else {
@@ -133,7 +133,7 @@ app.get('/logout', (req, res) => {
 // Getting Dev Apps
 app.get('/dev/get-devapps/:dev_id', async (req, res) => {
     let { dev_id } = req.params
-    console.log(dev_id)
+    // console.log(dev_id)
     let db = req.app.get('db')
     let getDevApp = await db.get_devapps([dev_id])
     // console.log(getDevApp)
@@ -147,7 +147,7 @@ app.get('/dev/get-devapps/:dev_id', async (req, res) => {
 app.post('/dev/addapp', async (req, res) => {
     let { dev_id, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags, appId, appLink } = req.body
     let db = req.app.get('db')
-    console.log({ dev_id, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags, appId })
+    // console.log({ dev_id, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags, appId })
     let createApp = await db.create_app([dev_id, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags, appLink, appId])
     let app = createApp[0]
     res.status(200).send({ app, message: 'App Successfully Added' })
@@ -165,8 +165,8 @@ app.post('/dev/addapp', async (req, res) => {
 app.post('/dev/getapp', (req, res) => {
     let { appId } = req.body
     let db = req.app.get('db')
-    console.log(appId)
-    console.log(JWT_1)
+    // console.log(appId)
+    // console.log(JWT_1)
     axios({
         method: 'get',
         url: `https://api.apptweak.com/applications/${appId}.json?country=us&language=us&device=iphone`,
@@ -174,7 +174,7 @@ app.post('/dev/getapp', (req, res) => {
         headers: { 'X-Apptweak-Key': JWT_1 }
     }).then(resp => {
         res.status(200).send(resp.data)
-        console.log(resp.data.content)
+        // console.log(resp.data.content)
     })
     // .catch(err => {
     //     res.status(400).send(console.log('ERROR:::',  err.resp.data))}
@@ -197,10 +197,10 @@ app.post('/dev/getapp', (req, res) => {
 
 app.get('/user/search/:searchchar', async (req, res) => {
     let { searchchar } = req.params
-    console.log(searchchar)
+    // console.log(searchchar)
     let db = req.app.get('db')
     let getApp = await db.search_apps([searchchar])
-    console.log(getApp)
+    // console.log(getApp)
     res.status(200).send(getApp)
 })
 
@@ -212,8 +212,8 @@ app.get('/user/search/:searchchar', async (req, res) => {
 // NEWAPP1
 app.get('/user/games/newapp1/:newapp1', async (req, res) => {
     let { newapp1 } = req.params
-    // console.log(newapp1);
-    console.log('Payton')
+    console.log(newapp1);
+    // console.log('Payton')
     let db = req.app.get('db')
     let getApp1 = await db.get_newApp([newapp1])
     let getApp = getApp1[0]
@@ -243,7 +243,7 @@ app.get('/user/games/newupdate1/:newupdate1', async (req, res) => {
 // NEW UPDATE 2
 app.get('/user/games/newupdate2/:newupdate2', async (req, res) => {
     let { newupdate2 } = req.params
-    console.log(newupdate2);
+    // console.log(newupdate2);
     let db = req.app.get('db')
     let getApp2 = await db.get_newApp([newupdate2])
     let getApp = getApp2[0]
@@ -255,8 +255,8 @@ app.get('/user/games/newupdate2/:newupdate2', async (req, res) => {
 
 app.get('/user/games/tags/:tags', async (req, res) => {
     let { tags } = req.params;
-    console.log('hslijahdkjweliueb')
-    console.log(tags)
+    // console.log('hslijahdkjweliueb')
+    // console.log(tags)
     let db = req.app.get('db');
     let getGame = await db.get_3Game([tags])
     res.status(200).send(getGame)
@@ -277,7 +277,7 @@ app.get('/user/games/tags/:tags', async (req, res) => {
 // USERNAME
 app.put('/dev/updateinfo/username', async (req, res) => {
     let { user_id, username } = req.body;
-    console.log(user_id, username)
+    // console.log(user_id, username)
     let db = req.app.get('db');
     await db.update_userName([user_id, username])
     res.sendStatus(200)
@@ -285,7 +285,7 @@ app.put('/dev/updateinfo/username', async (req, res) => {
 // EMAIL
 app.put('/dev/updateinfo/email', async (req, res) => {
     let { user_id, email } = req.body;
-    console.log(user_id, email)
+    // console.log(user_id, email)
     let db = req.app.get('db');
     await db.update_userEmail([user_id, email])
     res.sendStatus(200)
@@ -293,7 +293,7 @@ app.put('/dev/updateinfo/email', async (req, res) => {
 // DEV Company Name
 app.put('/dev/updateinfo/developer', async (req, res) => {
     let { user_id, developer } = req.body;
-    console.log(user_id, developer)
+    // console.log(user_id, developer)
     let db = req.app.get('db');
     await db.update_devName([user_id, developer])
     res.sendStatus(200)
@@ -312,28 +312,28 @@ app.put('/dev/updateinfo/developer', async (req, res) => {
 app.post(`/user/view/1`, async (req, res) => {
     let { newapps1 } = req.body
     let db = req.app.get('db')
-    console.log(newapps1)
+    // console.log(newapps1)
     await db.incrementView([newapps1])
     res.sendStatus(200)
 })
 app.post(`/user/view/2`, async (req, res) => {
     let { newapps2 } = req.body
     let db = req.app.get('db')
-    console.log(newapps2)
+    // console.log(newapps2)
     await db.incrementView([newapps2])
     res.sendStatus(200)
 })
 app.post(`/user/view/3`, async (req, res) => {
     let { newupdates1 } = req.body
     let db = req.app.get('db')
-    console.log(newupdates1)
+    // console.log(newupdates1)
     await db.incrementView([newupdates1])
     res.sendStatus(200)
 })
 app.post(`/user/view/4`, async (req, res) => {
     let { newupdates2 } = req.body
     let db = req.app.get('db')
-    console.log(newupdates2)
+    // console.log(newupdates2)
     await db.incrementView([newupdates2])
     res.sendStatus(200)
 })
@@ -341,28 +341,28 @@ app.post(`/user/view/4`, async (req, res) => {
 app.post(`/user/download/1`, async (req, res) => {
     let { appid } = req.body;
     let db = req.app.get('db');
-    console.log(appid);
+    // console.log(appid);
     await db.incrementDownload([appid])
     res.sendStatus(200)
 })
 app.post(`/user/download/2`, async (req, res) => {
     let { appid } = req.body;
     let db = req.app.get('db');
-    console.log(appid);
+    // console.log(appid);
     await db.incrementDownload([appid])
     res.sendStatus(200)
 })
 app.post(`/user/download/3`, async (req, res) => {
     let { appid } = req.body;
     let db = req.app.get('db');
-    console.log(appid);
+    // console.log(appid);
     await db.incrementDownload([appid])
     res.sendStatus(200)
 })
 app.post(`/user/download/4`, async (req, res) => {
     let { appid } = req.body;
     let db = req.app.get('db');
-    console.log(appid);
+    // console.log(appid);
     await db.incrementDownload([appid])
     res.sendStatus(200)
 })
@@ -385,7 +385,8 @@ app.post(`/user/view/dynamic`, async (req, res) => {
 app.post(`/user/download/dynamic`, async (req, res) => {
     let { appid } = req.body;
     let db = req.app.get('db');
-    console.log(req.body)
+    // console.log(req.body)
     await db.incrementDownload([appid])
+    console.log('Download Increment')
     res.sendStatus(200)
 })

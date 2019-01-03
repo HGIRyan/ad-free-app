@@ -13,7 +13,7 @@ class MenuBar extends Component {
                             <p>Today</p>
                         </Link>
                         {/* {console.log(this.props.location.pathname)} */}
-                        {console.log(this.props)}
+                        {/* {console.log(this.props)} */}
                         <Link to='/user/games'>
                             <p>Games</p>
                         </Link>

@@ -6,7 +6,11 @@ export default class FeaturedCard extends Component {
     render() {
         return (
             <div>
-                Featured Card
+                <h1>New Game</h1>
+                <h3>Name</h3>
+                <div>
+                    <p>Description</p>
+                </div>
             </div>
         )
     }

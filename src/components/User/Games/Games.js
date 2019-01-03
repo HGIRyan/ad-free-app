@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 // Imports
-import NewApps from './NewGameLove/newApps'
+import NewApp from './NewGameLove/newApps'
 import SuggestedGames from './Suggestions/SuggestedGames'
-import { timeout } from 'q';
+// import { timeout } from 'q';
 
 export default class Games extends Component {
     constructor() {
@@ -17,20 +17,22 @@ export default class Games extends Component {
             this.setState({
                 loaded: true,
             })
-        }, 1500)
+        }, 1000)
 
     }
 
 
 
     render() {
-        console.log('games.js')
+        // console.log('games.js')
         return (
             <div>
                 {this.state.loaded ?
                     <div>
                         Games
-                        <NewApps />
+                        Hello
+                        <NewApp />
+                        Hello
                         <SuggestedGames />
                     </div>
                     :

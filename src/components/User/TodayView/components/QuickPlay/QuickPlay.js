@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Slider from 'react-slick'
+import axios from 'axios'
+import GameResults from './../../../Games/Suggestions/GameResults'
 
-import GameResults from './GameResults'
-
-class SuggestedGames extends Component {
+class name extends Component {
     constructor() {
         super()
 
@@ -14,7 +13,13 @@ class SuggestedGames extends Component {
             hasMounted: false
         }
     }
-
+    async componentDidMount() {
+        if (!this.state.games) {
+            await this.getGames()
+            // this.incrementView()
+            // console.log('Suggested Games')
+        }
+    }
     async getGames() {
         if (!this.state.hasMounted) {
             // console.log('SENDING TAGS')
@@ -27,16 +32,13 @@ class SuggestedGames extends Component {
             })
         }
     }
-    async componentDidMount() {
-        if (!this.state.games) {
-            await this.getGames()
-            // console.log('Suggested Games')
-        }
+    async incrementView() {
+        let { appid } = this.props
+        console.log(appid)
+        await axios.post(`/user/view/dynamic`, { appid })
+        this.setState({ hasRan: true })
     }
-
-
     render() {
-        // console.log(this.state)
         var settings = {
             dots: false,
             infinite: true,
@@ -45,12 +47,10 @@ class SuggestedGames extends Component {
             adaptiveHeight: true,
             centerMode: true,
             variableWidth: true,
-
-
         };
         let mappedFirst3;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(0, 3)
+            let first3 = this.state.games.slice(0, 4)
             mappedFirst3 = first3.map((apps) => {
                 return (
                     <GameResults
@@ -66,7 +66,7 @@ class SuggestedGames extends Component {
         }
         let mappedMiddle;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(3, 6)
+            let first3 = this.state.games.slice(4, 8)
             mappedMiddle = first3.map((apps) => {
                 return (
                     <GameResults
@@ -82,7 +82,7 @@ class SuggestedGames extends Component {
         }
         let mappedMiddleLast;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(6, 9)
+            let first3 = this.state.games.slice(8, 12)
             mappedMiddleLast = first3.map((apps) => {
                 return (
                     <GameResults
@@ -96,35 +96,20 @@ class SuggestedGames extends Component {
                     />)
             })
         }
-        let mappedLast;
-        if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(9, 12)
-            mappedLast = first3.map((apps) => {
-                return (
-                    <GameResults
-                        key={apps.app_id}
-                        appid={apps.app_id}
-                        appLink={apps.app_link}
-                        appName={apps.app_name}
-                        app_description={apps.app_description}
-                        current_rating={apps.current_rating}
-                        iconImg={apps.iconimg}
-                    />)
-            })
-        }
-        console.log(mappedFirst3)
         return (
             <div>
                 <Slider {...settings}>
-                    <div>{mappedFirst3}</div>
-                    <div>{mappedMiddle}</div>
-                    <div>{mappedMiddleLast}</div>
-                    <div>{mappedLast}</div>
+                    {mappedFirst3}
+                </Slider>
+                <Slider {...settings}>
+                    {mappedMiddle}
+                </Slider>
+                <Slider {...settings}>
+                    {mappedMiddleLast}
                 </Slider>
             </div>
         )
     }
 }
 
-
-export default SuggestedGames;
+export default name;

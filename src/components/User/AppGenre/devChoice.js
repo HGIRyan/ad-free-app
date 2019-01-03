@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick'
 
-class NewApp extends Component {
+class DevChoice extends Component {
     constructor() {
         super()
 
@@ -11,10 +11,10 @@ class NewApp extends Component {
             newApps2: [],
             newUpdates1: [],
             newUpdates2: [],
-            newapp1: 'gyrosphere',
-            newapp2: 'PUBG MOBILE',
-            newupdate1: 'clash of clans',
-            newupdate2: 'minecraft',
+            newapp1: 'Things 3',
+            newapp2: 'Sweat: Kayla Itsines Fitness',
+            newupdate1: 'Adobe Photoshop Express',
+            newupdate2: 'Family Organizer by Picniic',
 
         }
     }
@@ -107,7 +107,7 @@ class NewApp extends Component {
                             <img src={newApps2.iconimg} alt={newApps2.app_name} />
                             {/* <p>{newApps2.app_description}</p> */}
                             <a href={newApps2.app_link}>
-                                <button onClick={() => { this.incrementDownloadNewApps2() }}>GET HERE2</button>
+                                <button onClick={() => { this.incrementDownloadNewApps2() }}>GET HERE</button>
                             </a>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ class NewApp extends Component {
                             <img src={newUpdates1.iconimg} alt={newUpdates1.app_name} />
                             {/* <p>{newUpdates1.app_description}</p> */}
                             <a href={newUpdates1.app_link}>
-                                <button onClick={() => { this.incrementDownloadNewUpdate1() }}>GET HERE3</button>
+                                <button onClick={() => { this.incrementDownloadNewUpdate1() }}>GET HERE</button>
                             </a>
                         </div>
                     </div>
@@ -129,7 +129,7 @@ class NewApp extends Component {
                             <img src={newUpdates2.iconimg} alt={newUpdates2.app_name} />
                             {/* <p>{newUpdates2.app_description}</p> */}
                             <a href={newUpdates2.app_link}>
-                                <button onClick={() => { this.incrementDownloadNewUpdate2() }}>GET HERE4</button>
+                                <button onClick={() => { this.incrementDownloadNewUpdate2() }}>GET HERE</button>
                             </a>
                         </div>
                     </div>
@@ -139,4 +139,4 @@ class NewApp extends Component {
     }
 }
 
-export default NewApp;
+export default DevChoice;

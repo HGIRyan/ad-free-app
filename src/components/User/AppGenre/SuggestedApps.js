@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick'
+import AppResults from './AppResults'
 
-import GameResults from './GameResults'
-
-class SuggestedGames extends Component {
+class SuggestedApps extends Component {
     constructor() {
         super()
 
         this.state = {
             games: false,
-            tags: 'GAME',
+            tags: 'productivity',
             hasMounted: false
+        }
+    }
+    async componentDidMount() {
+        if (!this.state.games) {
+            await this.getGames()
+            // console.log('Suggested Games')
         }
     }
 
@@ -27,14 +32,6 @@ class SuggestedGames extends Component {
             })
         }
     }
-    async componentDidMount() {
-        if (!this.state.games) {
-            await this.getGames()
-            // console.log('Suggested Games')
-        }
-    }
-
-
     render() {
         // console.log(this.state)
         var settings = {
@@ -53,7 +50,7 @@ class SuggestedGames extends Component {
             let first3 = this.state.games.slice(0, 3)
             mappedFirst3 = first3.map((apps) => {
                 return (
-                    <GameResults
+                    <AppResults
                         key={apps.app_id}
                         appid={apps.app_id}
                         appLink={apps.app_link}
@@ -69,7 +66,7 @@ class SuggestedGames extends Component {
             let first3 = this.state.games.slice(3, 6)
             mappedMiddle = first3.map((apps) => {
                 return (
-                    <GameResults
+                    <AppResults
                         key={apps.app_id}
                         appid={apps.app_id}
                         appLink={apps.app_link}
@@ -85,7 +82,7 @@ class SuggestedGames extends Component {
             let first3 = this.state.games.slice(6, 9)
             mappedMiddleLast = first3.map((apps) => {
                 return (
-                    <GameResults
+                    <AppResults
                         key={apps.app_id}
                         appid={apps.app_id}
                         appLink={apps.app_link}
@@ -101,7 +98,7 @@ class SuggestedGames extends Component {
             let first3 = this.state.games.slice(9, 12)
             mappedLast = first3.map((apps) => {
                 return (
-                    <GameResults
+                    <AppResults
                         key={apps.app_id}
                         appid={apps.app_id}
                         appLink={apps.app_link}
@@ -112,7 +109,6 @@ class SuggestedGames extends Component {
                     />)
             })
         }
-        console.log(mappedFirst3)
         return (
             <div>
                 <Slider {...settings}>
@@ -127,4 +123,4 @@ class SuggestedGames extends Component {
 }
 
 
-export default SuggestedGames;
+export default SuggestedApps;
