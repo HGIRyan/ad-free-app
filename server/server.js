@@ -269,6 +269,16 @@ app.get('/user/games/tags/:tags', async (req, res) => {
 // ===============================
 // DEV STUFF
 
+app.post(`/dev/appdata/chart`, async (req, res) => {
+    console.log('hitting')
+    let {dev_id, app_id} = req.body;
+    let db = req.app.get('db');
+    let getAppData = await db.getAppData([dev_id, app_id])
+    res.status(200).send(getAppData)
+})
+
+
+
 
 
 // ===============================
@@ -385,8 +395,8 @@ app.post(`/user/view/dynamic`, async (req, res) => {
 app.post(`/user/download/dynamic`, async (req, res) => {
     let { appid } = req.body;
     let db = req.app.get('db');
-    // console.log(req.body)
+    console.log(req.body)
     await db.incrementDownload([appid])
-    console.log('Download Increment')
+    // console.log('Download Increment')
     res.sendStatus(200)
 })

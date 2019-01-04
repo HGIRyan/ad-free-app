@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { dataDump, update_username, update_user_id, update_user_email, update_autoRenewal, update_renewalPeriod, update_isDev, update_developer  } from './../../ducks/reducer'
+import { dataDump, update_username, update_user_id, update_user_email, update_autoRenewal, update_renewalPeriod, update_isDev, update_developer } from './../../ducks/reducer'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 
@@ -12,7 +12,9 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            message:'Hello!'
+            message: 'Hello!',
+            dev: false,
+            user: false
         }
     }
 
@@ -28,7 +30,7 @@ class Login extends Component {
             // this.props.update_isDev(res.data.sessionUser.isDev)
             // console.log(res.data.sessionUser.isDev)
             // this.props.update_developer(res.data.sessionUser.developer)
-        } else if(res.data.loggedIn){
+        } else if (res.data.loggedIn) {
             console.log(res.data)
             console.log(res.data.sessionUser.isDev)
             this.props.history.push('/user/today')
@@ -40,7 +42,24 @@ class Login extends Component {
             // this.props.update_renewalPeriod(res.data.sessionUser.renewalPeriod)
         }
         this.setState({ username: '', password: '', message: res.data.message })
-    }   
+    }
+    async isDevTrue() {
+        await this.setState({
+            username: 'dev',
+            password: '1'
+        })
+        console.log('DEV')
+        this.login()
+    }
+    async isUserTrue() {
+        await this.setState({
+            username: 'User',
+            password: '1'
+        })
+        console.log('User')
+        this.login()
+    }
+
 
     render() {
 
@@ -54,6 +73,8 @@ class Login extends Component {
                 <Link to='/register'>
                     <button>Register</button>
                 </Link>
+                <button onClick={() => { this.isDevTrue() }}>Dev</button>
+                <button onClick={() => { this.isUserTrue() }}>User</button>
                 <p></p>
                 {this.state.message}
             </div>
@@ -61,5 +82,5 @@ class Login extends Component {
     }
 }
 
-export default connect(null, { dataDump, update_username, update_user_id, update_user_email, update_autoRenewal, update_renewalPeriod, update_isDev, update_developer   })(Login)
+export default connect(null, { dataDump, update_username, update_user_id, update_user_email, update_autoRenewal, update_renewalPeriod, update_isDev, update_developer })(Login)
 // export default Auth
