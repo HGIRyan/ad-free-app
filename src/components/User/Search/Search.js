@@ -24,7 +24,7 @@ export default class Search extends Component {
         })
     }
 
-    async event (){
+    async event() {
         await this.setState({
             result: true
         })
@@ -44,12 +44,13 @@ export default class Search extends Component {
                     iconImg={apps.iconimg}
                     img1={apps.img1}
                     tags={apps.tags}
-                    />
+                    appid={apps.app_id}
+                />
             )
         })
         return (
             <div>
-                {this.state.result?
+                {this.state.result ?
                     <div>
                         <input type='text' value={this.state.searchchar} onChange={(e) => { this.setState({ searchchar: e.target.value }) }} />
                         <button onClick={() => this.search()}>Search</button>

@@ -11,10 +11,11 @@ export default function Apps(props) {
         slidesToShow: 4,
         adaptiveHeight: true
     };
+    console.log('HEY IM NOT BREAKING')
     let { appLink, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags } = props
     return (
-        <div className='devApps'>
-            <div className='appInfo'>
+        <div>
+            <div>
                 <h1>
                     Name: {appName}
                 </h1>
@@ -25,7 +26,7 @@ export default function Apps(props) {
                 Rating: {current_rating}
                 <img src={iconImg} alt='' />
             </div>
-            <div className='appImg'>
+            <div>
                 <Slider {...settings}>
                     <img src={img1} alt='' />
                     <img src={img2} alt='' />

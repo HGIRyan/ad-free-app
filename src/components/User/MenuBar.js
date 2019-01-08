@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+// import PropTypes from 'prop-types';
+// import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
-    button: {
-        margin: theme.spacing.unit,
-    },
-    input: {
-        display: 'none',
-    },
-});
+// const styles = theme => ({
+//     button: {
+//         margin: theme.spacing.unit,
+//     },
+//     input: {
+//         display: 'none',
+//     },
+// });
 
 class MenuBar extends Component {
 

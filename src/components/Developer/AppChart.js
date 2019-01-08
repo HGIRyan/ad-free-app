@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Bar, Line } from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
 import { update_chartData } from './../../ducks/reducer'
 import axios from 'axios'
 import AppInfoList from './AppInfoList'
+import './Dev.css'
+import { relative } from 'path';
 
 class AppChart extends Component {
     constructor() {
@@ -19,13 +21,13 @@ class AppChart extends Component {
                     {
                         label: 'Views',
                         data: [ //View Sum For Each Day
-                            5000, 8402, 6541, 5874
+                            500, 840, 654, 587
                         ],
                     },
                     {
                         label: 'Downloads',
                         data: [ // download sum for each day
-                            521, 564, 813, 987
+                            52, 56, 81, 98
                         ]
                     }
                 ]
@@ -51,27 +53,33 @@ class AppChart extends Component {
         // let { dev_id } = this.props
         console.log('ID', dev_id, app_id)
         let res = await axios.post(`/dev/appdata/chart`, { dev_id, app_id })
-        const cd = res.data.reverse()
+        const chartD = res.data.reverse()
         console.log('Response', res.data)
+        let cd = chartD.map((cd => {
+            return cd.date.split('T')[0]
+        }))
         console.log(cd)
+
         await this.setState({
             chartData: {
-                labels: [ //Date of being recorded
-                    cd[0].date.split('T')[0], cd[1].date.split('T')[0], cd[2].date.split('T')[0], cd[3].date.split('T')[0],
-                ],
+                labels:
+                    chartD.map(cd => {
+                        return cd.date.split('T')[0]
+                    })
+                ,
                 // labels: [res.data[0].time_of, cd[1].time_of, cd[2].time_of,],
                 datasets: [
                     {
                         label: 'Views',
-                        data: [ //View Sum For Each Day
-                            cd[0].views, cd[1].views, cd[2].views, cd[3].views,
-                        ],
+                        data: chartD.map(cd => {
+                            return cd.views
+                        }),
                     },
                     {
                         label: 'Downloads',
-                        data: [ // download sum for each day
-                            cd[0].downloads, cd[1].downloads, cd[2].downloads, cd[3].downloads,
-                        ]
+                        data: chartD.map(cd => {
+                            return cd.downloads
+                        })
                     }
                 ]
 
@@ -81,6 +89,12 @@ class AppChart extends Component {
     }
 
     render() {
+        var styles = {
+            position: relative,
+            height: '40vh',
+            width: '80vw'
+
+        }
         console.log('state', this.state.chartData)
         let mappedApps = this.state.appInfo.map(appInfo => {
             return (
@@ -95,10 +109,14 @@ class AppChart extends Component {
         })
         return (
             <div className='chart'>
-                <Line
-                    data={this.state.chartData}
-                />
-                {mappedApps}
+                <div className='appItems'>
+                    {mappedApps}
+                </div>
+                <div className='line'>
+                    <Line style={styles}
+                        data={this.state.chartData}
+                    />
+                </div>
             </div>
         )
     }

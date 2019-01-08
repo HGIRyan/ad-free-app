@@ -5,7 +5,7 @@ const session = require('express-session')
 const bcrypt = require('bcryptjs')
 const massive = require('massive')
 const axios = require('axios')
-const apiTests = require('./controllers/apiTest')
+// const apiTests = require('./controllers/apiTest')
 
 const app = express();
 app.use(express.json())

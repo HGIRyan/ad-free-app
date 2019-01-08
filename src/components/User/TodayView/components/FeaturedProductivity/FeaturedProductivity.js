@@ -33,8 +33,16 @@ export default class FeaturedProductivity extends Component {
         }
     }
     async incrementView() {
-        let { appid } = this.props
-        await axios.post(`/user/view/dynamic`, { appid })
+        let { app_id } = this.state.games
+        console.log(app_id)
+        await axios.post(`/user/view/dynamic`, { app_id })
+    }
+    async incrementDownload() {
+        let { app_id } = this.state.games
+        await axios.post(`/user/download/dynamic`, { app_id })
+        this.setState({ hasRan: true })
+        console.log(app_id)
+        console.log(this.state.games)
     }
 
     render() {

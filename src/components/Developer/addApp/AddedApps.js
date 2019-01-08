@@ -44,6 +44,7 @@ class AddedApps extends Component {
                 />
             )
         })
+        console.log('Got Here 1')
         return (
             <div>
                 {mappedApps}

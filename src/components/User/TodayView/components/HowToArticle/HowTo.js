@@ -13,7 +13,7 @@ class HowTo extends Component {
       return (
           <div>
               <div>
-                  <img />
+                  <img src='' alt=''/>
               </div>
               <div>
                   <h1>How To</h1>

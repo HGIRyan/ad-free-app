@@ -1,0 +1,179 @@
+/* 
+COLOR THEME 
+#313131 Blackish Grey
+#8E8E93 Grey for sub text
+#111111 Black for Main Heading Text
+
+
+
+*/
+/* MENU START */
+.Menu-Header {
+    background-color: #313131;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: flex-end;
+    height: 10vh;
+    width: 100vw;
+    align-items: center;
+    position: fixed;
+    z-index: 5;
+}
+.Menu-Header p {
+    /* background-color: brown; */
+    display: flex;
+    color: white;
+    text-decoration: none;
+    margin-right: 40px;
+    font-size: 150%;
+    transition: .5s;
+}
+.Menu-Header a {
+    text-decoration: none;
+}
+.Menu-Header p:hover {
+    background-color: white;
+    display: flex;
+    color: black;
+    margin-right: 40px;
+    font-size: 150%;
+    text-decoration: none;
+    border-radius: 15%;
+}
+/* MENU END */
+/* DEV INFO START */
+.devInfoWhole {
+padding-top: 15vh;
+display: flex;
+flex-direction: column;
+}
+
+.devName {
+    display: flex;
+    /* background-color: yellow; */
+}
+.devNameChild{
+    display: flex;
+    /* background-color: gray; */
+    /* flex-direction: column; */
+    align-items: center;
+}
+.devNameChild h1 {
+    padding-left: 20px;
+    padding-bottom: 0px;
+    margin: 0px;
+}
+.devNameChild h3 {
+    padding-left: 20px;
+    padding-bottom: 0px;
+    margin: 0px;
+}
+.devNameChild p {
+    padding-left: 20px;
+    padding-bottom: 0px;
+    margin: 0px;
+    /* border: solid black; */
+}
+.devDate {
+    display: flex;
+    flex-direction: column;
+}
+
+.chartComp {
+    max-height: 60%;
+    background-color: yellow;
+}
+.chart {
+    /* background-color: yellow; */
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    position: relative;
+}
+
+.appItems{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.line {
+    display: flex;
+    /* height: 80vh; */
+    width: 75vw;
+    /* height: 40vh; */
+}
+/* DEV INFO END */
+
+/* ADD APP START */
+.addApp {
+    justify-content: center;
+    padding-top: 15vh;
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    }
+.addAppChild {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
+.autoAdd{
+   display: flex;
+    flex-direction: column;
+}
+.addAppLink {
+    display: flex;
+    background-color: yellow;
+    justify-content: space-around;
+}
+.appRating {
+    display: flex;
+    justify-content: space-around;
+}
+#ratingInput {
+    width: 25%
+}
+#linkInput {
+    width: 250px;
+}
+#tagInput {
+    width: 41%;
+}
+.preview-Button {
+    display: flex;
+    height: 40px;
+    width: 180px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+.manual-Button {
+    display: flex;
+    height: 40px;
+    width: 80px;
+    font-size: 1em;
+    justify-content: center;
+}
+.add-Buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.devApps {
+    display: flex;
+}
+.appInfo {
+    display: flex;
+    flex-direction: row;
+}
+.appStats {
+    display: flex;
+    flex-direction: column;
+}
+/* ADD APP END */
