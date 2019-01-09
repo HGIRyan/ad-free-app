@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import Apps from './Apps'
+import './../Dev.css'
 
 
 class AddedApps extends Component {
@@ -46,7 +47,7 @@ class AddedApps extends Component {
         })
         console.log('Got Here 1')
         return (
-            <div>
+            <div className='addedPage'>
                 {mappedApps}
             </div>
         )

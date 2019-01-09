@@ -28,7 +28,8 @@ class App extends Component {
     let { isDev } = this.props
     // console.log(isDev)
     return (
-      <HashRouter className='App'>
+      // <div className='App'>
+      <HashRouter>
         <Switch>
           {/* LOGIN CHECKS CREDINCIALS 
           ALWAYS CALLS L*/}
@@ -46,6 +47,7 @@ class App extends Component {
           {this.props.username}
         </Switch>
       </HashRouter>
+      // </div>
     );
   }
 }

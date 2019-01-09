@@ -1,42 +1,61 @@
-import React from 'react'
+import React, { Component } from 'react';
 import './app.css'
 import Slider from "react-slick";
+import Download from './../../../Assets/baseline-cloud_download-24px.svg'
 
+class Apps extends Component {
+    constructor() {
+        super()
 
-export default function Apps(props) {
-    var settings = {
-        dots: false,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 4,
-        adaptiveHeight: true
-    };
-    console.log('HEY IM NOT BREAKING')
-    let { appLink, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags } = props
-    return (
-        <div>
-            <div>
-                <h1>
-                    Name: {appName}
-                </h1>
-                <a href={appLink}>
-                    Download:
-                    </a>
-                Description: {app_description}
-                Rating: {current_rating}
-                <img src={iconImg} alt='' />
+        this.state = {
+            longRead: true
+        }
+    }
+
+    render() {
+        var settings = {
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            adaptiveHeight: true
+        };
+        let { appLink, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags } = this.props
+        return (
+            <div className='app-Card'>
+                    <div className='Title-Name'>
+                        <img src={iconImg} alt={appName + ' Logo'} className='appLogoAdded' />
+                        <div className='name-rating'>
+                            <h1>{appName}</h1>
+                            <h1 id='RATING'>Rating: {current_rating}</h1>
+                            <a href={appLink}><img src={Download} alt='DOWNLOAD'/></a>
+                        </div>
+                </div>
+                <div className='screenshotsDisplay'>
+                    <h1>Screenshots</h1>
+                    <Slider {...settings}>
+                        <img src={img1} alt='img1' />
+                        <img src={img2} alt='img2' />
+                        <img src={img3} alt='img3' />
+                        <img src={img4} alt='img4' />
+                        <img src={img5} alt='img5' />
+                        <img src={img6} alt='img6' />
+                    </Slider>
+                </div>
+                {this.state.longRead ?
+                    <div>
+                        <p>{app_description.substring(0, 200)}</p>
+                        <p onClick={(e) => this.setState(prevState => ({ longRead: !prevState.longRead }))}> Read More...</p>
+                    </div> :
+                    <div>
+                        <p>{app_description}</p>
+                        <p onClick={(e) => this.setState(prevState => ({ longRead: !prevState.longRead }))}> Read Less...</p>
+                    </div>
+                }
+                {tags}
             </div>
-            <div>
-                <Slider {...settings}>
-                    <img src={img1} alt='' />
-                    <img src={img2} alt='' />
-                    <img src={img3} alt='' />
-                    <img src={img4} alt='' />
-                    <img src={img5} alt='' />
-                    <img src={img6} alt='' />
-                </Slider>
-            </div>
-            {tags}
-        </div>
-    )
+        )
+    }
 }
+
+export default Apps;

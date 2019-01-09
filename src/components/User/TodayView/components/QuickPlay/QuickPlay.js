@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick'
 import axios from 'axios'
-import GameResults from './../../../Games/Suggestions/GameResults'
+// import GameResults from './../../../Games/Suggestions/GameResults'
 
 class name extends Component {
     constructor() {
@@ -39,29 +39,47 @@ class name extends Component {
         this.setState({ hasRan: true })
     }
     render() {
-        var settings = {
+        var settings1 = {
             dots: false,
             infinite: true,
             speed: 250,
             slidesToShow: 1,
-            adaptiveHeight: true,
-            centerMode: true,
+            // adaptiveHeight: true,
+            // centerMode: true,
             variableWidth: true,
+            autoplay: true,
+            autoplaySpeed: 1500,
+        };
+        var settings2 = {
+            dots: false,
+            infinite: true,
+            speed: 250,
+            slidesToShow: 1,
+            // adaptiveHeight: true,
+            // centerMode: true,
+            variableWidth: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+        };
+        var settings3 = {
+            dots: false,
+            infinite: true,
+            speed: 250,
+            slidesToShow: 1,
+            // adaptiveHeight: true,
+            // centerMode: true,
+            variableWidth: true,
+            autoplay: true,
+            autoplaySpeed:1750,
         };
         let mappedFirst3;
         if (this.state.games && !this.state.hasRan) {
             let first3 = this.state.games.slice(0, 4)
             mappedFirst3 = first3.map((apps) => {
                 return (
-                    <GameResults
-                        key={apps.app_id}
-                        appid={apps.app_id}
-                        appLink={apps.app_link}
-                        appName={apps.app_name}
-                        app_description={apps.app_description}
-                        current_rating={apps.current_rating}
-                        iconImg={apps.iconimg}
-                    />)
+                    <div>
+                        <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                    </div>)
             })
         }
         let mappedMiddle;
@@ -69,15 +87,9 @@ class name extends Component {
             let first3 = this.state.games.slice(4, 8)
             mappedMiddle = first3.map((apps) => {
                 return (
-                    <GameResults
-                        key={apps.app_id}
-                        appid={apps.app_id}
-                        appLink={apps.app_link}
-                        appName={apps.app_name}
-                        app_description={apps.app_description}
-                        current_rating={apps.current_rating}
-                        iconImg={apps.iconimg}
-                    />)
+                    <div>
+                        <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                    </div>)
             })
         }
         let mappedMiddleLast;
@@ -85,26 +97,22 @@ class name extends Component {
             let first3 = this.state.games.slice(8, 12)
             mappedMiddleLast = first3.map((apps) => {
                 return (
-                    <GameResults
-                        key={apps.app_id}
-                        appid={apps.app_id}
-                        appLink={apps.app_link}
-                        appName={apps.app_name}
-                        app_description={apps.app_description}
-                        current_rating={apps.current_rating}
-                        iconImg={apps.iconimg}
-                    />)
+                    <div>
+                        <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                    </div>
+                )
             })
         }
         return (
-            <div>
-                <Slider {...settings}>
+            <div className='SwirlWhole'>
+                <h1>Cool Games</h1>
+                <Slider {...settings1}>
                     {mappedFirst3}
                 </Slider>
-                <Slider {...settings}>
+                <Slider {...settings2}>
                     {mappedMiddle}
                 </Slider>
-                <Slider {...settings}>
+                <Slider {...settings3}>
                     {mappedMiddleLast}
                 </Slider>
             </div>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './app.css'
 import './../Dev.css'
 import Slider from "react-slick";
-
+import Download from './../../../Assets/baseline-cloud_download-24px.svg'
 
 class AddApp extends Component {
     constructor() {
@@ -100,7 +100,7 @@ class AddApp extends Component {
                             {this.props.developer}
                             <div className='addAppLink'>
                                 <h1 className='appRating'>Add An App Here: <input onChange={(e) => { this.setState({ appLink: e.target.value }) }} type='text' id='linkInput' /> </h1>
-                                <h1>ID: {this.state.appId}</h1>
+                                <h1>ID: {appId}</h1>
                             </div>
                             <h1 className='appRating'>Put The Apps Current Rating Here: <input onChange={(e) => { this.setState({ current_rating: e.target.value }) }} type='text' id='ratingInput' /> </h1>
                             <h1 className='appRating'>Add App Tags Here: <input onChange={(e) => { this.setState({ tags: e.target.value }) }} type='text' id='tagInput' /> </h1>
@@ -134,18 +134,15 @@ class AddApp extends Component {
                     <hr />
                     {this.state.message}
                     <div className='devApps'>
-                        <div className='appInfo'>
-                            <img src={iconImg} alt={appName + 'logo'} />
-                            <div className='appStats'>
-                                <h1>Name: {appName}</h1>
-                                <p>ID: {appId}</p>
-                                <a href={appLink}>
-                                    <p>Download Here</p>
-                                </a>
-                                <p>Rating: {current_rating}</p>
-
+                        <div className='Title-Name'>
+                            <img src={iconImg} alt={appName + ' Logo'} className='appLogoAdded' />
+                            <div className='name-rating'>
+                                <h1>NAME : {appName}</h1>
+                                <h1 id='RATING'>Rating: {current_rating}</h1>
+                                <a href={appLink}>DOWNLOAD: <img src={Download} alt='DOWNLOAD' /></a>
                             </div>
                         </div>
+                        <hr/>
                         <div className='appImg'>
                             <Slider {...settings}>
                                 <img src={img1} alt='' />
@@ -168,7 +165,8 @@ class AddApp extends Component {
                             }
                         </div>
                         {tags}
-                        <button onClick={() => this.addApp()}>addApp</button>
+                        <button onClick={() => this.addApp()} className='preview-Button'>addApp</button>
+                        <h1>{this.state.message}</h1>
                     </div>
                     <a href='https://www.apple.com/us/search' target='_blank' rel="noopener noreferrer"><p>
                         Search For Apps Here

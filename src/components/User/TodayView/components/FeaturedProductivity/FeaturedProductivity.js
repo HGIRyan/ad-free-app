@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 // Imports
+import Download from './../../../../../Assets/baseline-cloud_download-24px.svg'
+
 
 export default class FeaturedProductivity extends Component {
     constructor() {
         super()
         this.state = {
             games: false,
-            newapp1: 'ibotta',
+            newapp1: 'tinder',
             hasMounted: false
         }
     }
@@ -53,14 +55,20 @@ export default class FeaturedProductivity extends Component {
                 {!this.state.hasMounted ?
                     null
                     :
-                    <div>
-                        <img src={iconimg} alt={app_name} />
-                        <h1>{app_name}</h1>
+                    <div className='FeaturedProd'>
+                        <div className='FTop'>
+                            <img src={iconimg} alt={app_name} id='FLogo' />
+                            <div className='FSide'>
+                                <h1>{app_name}</h1>
+                            </div>
+                        </div>
+                        <div className='FUnder'>
+                            <h3>{current_rating}</h3>
+                            <a href={app_link}>
+                                <img src={Download} alt='Download' onClick={() => { this.incrementDownload() }} />
+                            </a>
+                        </div>
                         <h2>{app_description.substring(0, 50)}</h2>
-                        <h3>{current_rating}</h3>
-                        <a href={app_link}>
-                            <h1 onClick={() => { this.incrementDownload() }}>Get</h1>
-                        </a>
                     </div>
 
                 }

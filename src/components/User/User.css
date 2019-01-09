@@ -1,37 +1,260 @@
+/* PRIMARY THEME COLORS */
+:root {
+    --background:#FFFFFF ;
+    --subText:#B2B2B4  ;
+    --Button: #0079FE ;
+    --fourth: ;
+    --fith: ;
+    --mainText: #000000;
+}
+
+
+
+
 /* IPHONE X and 6Plus and 6 */
 @media only screen and (max-width: 450px) {
-.userComponents {
+/* .userComponents {
     height: auto;
     width: 100vw;
     background-color: yellow;
     display: flex;
     flex-direction: column;
-}
-
-.MenuBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 5%;
-    font-size: 1.5em;
-    background-color: red;
-
-}
-.today {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 2em;
-}
-.headerImg {
+} */
+/* .headerImg {
     display: flex;
     max-height: 40px;
 }
+img {
+    max-height: 50px;
+} */
+/* .MenuBar {
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+position: fixed;
+bottom: 0;
+width: 100%;
+height: 5%;
+font-size: 1.5em;
+background-color: red;
+
+} */
+/* MENU BAR START */
+#UserMain{
+    /* position: static; */
+    /* border: solid black; */
+    max-height: 94vh;
+    /* background-color: yellow; */
+}
+.MenuBar{
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 0;
+    width: 100vw;
+    height: 6vh;
+    /* background-color: yellow; */
+    opacity: 1;
+    background-color: #f9f9f9;
+    z-index: 5;
+}
+.MenuBar p {
+    font-size: 120%;
+    text-decoration: none;
+    /* border: black solid; */
+    height: 100%;
+    width: 100%;
+    color: var(--mainText);
+}
+.Menu-Button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+.Menu-Button img {
+    margin: 0px;
+}
+.Menu-Button p {
+    margin: 0px;
+    padding-bottom: 0;
+}
+.MenuBar img {
+    max-height: 20px;
+}
+
+/* MENU BAR END */
+/* iPhone Header START */
+.iPhoneBar {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    width: 100vw;
+    height: 6vh;
+    /* background-color: yellow; */
+    opacity: 1;
+    background-color: #f9f9f9;
+}
+.iPhoneBar img {
+    height: 100px;
+}
+/* iPhone Header END */
+/* .NewGame h3 {
+    justify-content: center;
+} */
+/* TODAY PAGE START */
+/* TODAY VIEW START */
+
+.TodayViewPage {
+    height: auto;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.TodayViewHeader {
+    height: 12vh;
+    /* width: 100vw; */
+    /* padding-bottom: 25%; */
+}
+.TodayViewBody {
+    height: auto;
+    width: 90vw;
+}
+/* TODAY VIEW END */
+/* TODAY HEADER START */
+.TodayHeader {
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* flex */
+    margin: 0;
+    padding: 0;
+}
+.time-Profile {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--mainText)
+    /* background-color: brown; */
+}
+.time-Profile img {
+    height: 70px;
+}
+.TodayHeader h1 {
+    background-color: var(--primary);
+}
+/* TODAY HEADER END */
+/* TODAY NEW APP START */
+.NewAdFree {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    max-width: 90vw;
+    border-radius: 10%;
+    /* max-height: 500vh; */
+    -webkit-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    -moz-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    margin-bottom: 5%;
+}
+
+/* TODAY NEW APP END */
+/* TODAY FEATURED PRODUCTIVITY START */
+.FeaturedProd {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    -webkit-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    -moz-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    padding: 5%;
+    margin-bottom: 5%;
+    border-radius: 10%;
+}
+.FTop {
+    display: flex;
+    flex-direction: row;
+}
+#FLogo {
+max-height: 150px;
+max-width: 150px;
+/* padding-left: 5%; */
+/* margin-left: 5%; */
+border-radius: 15%;
+}
+.FSide {
+display: flex;
+/* flex-direction: column; */
+margin-left: 5%;
+font-size: 80%;
+}
+.FUnder {
+    display: flex;
+    justify-content: space-around;
+    /* border: solid black; */
+    align-items: center;
+    font-size: 150%;
+}
+.FUnder img {
+    height: 40px;
+    margin: 0;
+    margin-top: 2.5%;
+}
+.FUnder h3 {
+    margin: 0;
+    margin-top: 2.5%;
+}
+
+/* TODAY FEATURED PRODUCTIVITY END */
+/* TODAY APP SWIRL START */
+.SwirlWhole {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    -webkit-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    -moz-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    padding: 5%;
+    margin-bottom: 25%;
+    border-radius: 10%;
+    padding-bottom: 10%;
+}
+.SwirlAppLogo {
+    height: 100px;
+    padding: 10px;
+    border-radius: 15%;
+}
+
+/* TODAY APP SWIRL END */
+/* TODAY PAGE END */
+/* GAME PAGE START */
+
+
+/* GAME PAGE END */
+/* APP PAGE START */
+
+
+/* APP PAGE END */
+/* SEARCH START */
+
+
+/* SEARCH END */
+/* INDIVIDUAL APP PAGE START */
+
+
+/* INDIVIDUAL APP PAGE END */
+/* USER SETTINGS PAGE START */
+
+
+/* USER SETTINGS PAGE END */
 } 
 
 /* Tablets */

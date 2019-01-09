@@ -472,7 +472,25 @@ a {
 }
 
 .App {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    margin: auto;
     width: 90vw;
+    height: 94vh;
+    /* background-color: yellow; */
+}
+p {
+    color: var(--subText);
+}
+div {
+    color: var(--subText);
+}
+h1 {
+    color: var(--mainText);
+}
+h2 {
+    color: var(--mainText);
+}
+h3 {
+    color: var(--mainText);
 }

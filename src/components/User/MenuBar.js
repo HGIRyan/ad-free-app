@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button';
+import './User.css'
+import Today from './../../Assets/Today.png'
+import Rocket from './../../Assets/Rocket.png'
+import Apps from './../../Assets/Apps.png'
+import Search from './../../Assets/Search.png'
 // import PropTypes from 'prop-types';
 // import { withStyles } from '@material-ui/core/styles';
 
@@ -19,34 +23,35 @@ class MenuBar extends Component {
     render() {
         // const { classes } = this.props;
         return (
-            <div>
-                {this.props.location.pathname === '/user/search/results' ? null :
+           
                     <div className='MenuBar' >
                         <Link to='/user/today'>
-                            <Button variant="contained">
+                            <div className='Menu-Button'>
+                                <img src={Today} alt='' />
                                 <p>Today</p>
-                            </Button>
+                            </div>
                         </Link>
                         {/* {console.log(this.location.pathname)} */}
                         {/* {console.log(this.props)} */}
                         <Link to='/user/games'>
-                        <Button variant="contained">
+                            <div className='Menu-Button'>
+                                <img src={Rocket} alt='' />
                                 <p>Games</p>
-                            </Button>
+                            </div>
                         </Link>
                         <Link to='/user/apps'>
-                        <Button variant="contained">
+                            <div className='Menu-Button'>
+                                <img src={Apps} alt='' />
                                 <p>Apps</p>
-                            </Button>
+                            </div>
                         </Link>
                         <Link to='/user/search'>
-                        <Button variant="contained" color='primary'>
+                            <div className='Menu-Button'>
+                                <img src={Search} alt='' />
                                 <p>Search</p>
-                            </Button>
+                            </div>
                         </Link>
                     </div>
-                }
-            </div>
         )
     }
 }
