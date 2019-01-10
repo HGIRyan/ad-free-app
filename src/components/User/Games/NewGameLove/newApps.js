@@ -82,7 +82,7 @@ class NewApp extends Component {
         })
     }
 
-    render() {
+    render() { 
         var settings = {
             dots: false,
             infinite: true,
