@@ -45,7 +45,7 @@ background-color: red;
 #UserMain{
     /* position: static; */
     /* border: solid black; */
-    max-height: 94vh;
+    /* max-height: 94vh; */
     /* background-color: yellow; */
 }
 .MenuBar{
@@ -250,6 +250,8 @@ font-size: 80%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 100%;
+    background-color: yellow;
 }
 .GameHeader img {
     max-height: 50px;
@@ -261,14 +263,12 @@ font-size: 80%;
 .newApps {
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    height: auto;
     padding-bottom: 0%;
-    /* width: 90vw; */
     
 }
 .newGCard {
     display: flex;
-    /* width: 100vw; */
     border-radius: 10%;
 }
 .newGCard > img {
@@ -287,11 +287,11 @@ display: flex;
 .nameGInfo {
     font-size: 65%;
 }
-.Blank {
+/* .Blank {
     margin-right: 150px;
     height: 5px;
-    /* width: 4014px; */
-}
+    width: 4014px;
+} */
 /* NEWAPPS END */
 /* SUGGESTED GAMES START */
 .SuggestedAppsComp {
