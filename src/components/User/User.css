@@ -433,6 +433,9 @@ display: flex;
 .SearchBody img {
     width: 100%;
     border-radius: 5%;
+    -webkit-box-shadow: var(--Shadow);
+    -moz-box-shadow: var(--Shadow);
+    box-shadow: var(--Shadow);
 }
 
 /* SEARCHBODY END */
