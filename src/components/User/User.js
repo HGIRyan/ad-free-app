@@ -15,6 +15,11 @@ import Apps from './AppGenre/Apps'
 import Search from './Search/Search'
 import SearchResults from './Search/SearchResults'
 import IPhoneHeader from './iPhoneHeader'
+
+// require('dotenv').config()
+// let {LoggedOut} = process.env;
+// console.log(process.env.REACT_APP_LoggedOut)
+
 class User extends Component {
     constructor() {
         super()
@@ -59,7 +64,7 @@ class User extends Component {
                     </div>
                     :
                     <div>Please Die
-                        <a href='http://localhost:4000/logout'>
+                        <a href={process.env.REACT_APP_LoggedOut}>
                             <button className='navBar-button' onClick={() => { resetState() }}> Log In Here </button>
                         </a>
                     </div>

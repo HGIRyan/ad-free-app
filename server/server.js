@@ -10,7 +10,9 @@ const axios = require('axios')
 const app = express();
 app.use(express.json())
 app.use(express.static(__dirname + './../build'))
-let { SERVER_PORT, CONNECTION_STRING, SECRET, JWT_1 } = process.env;
+let { SERVER_PORT, CONNECTION_STRING, SECRET, JWT_1, sendBack } = process.env;
+
+app.use( express.static( `${__dirname}/../../build` ) );
 
 // SETUP
 app.use(session({
@@ -124,7 +126,7 @@ app.get('/api/dev-data', (req, res) => {
 app.get('/logout', (req, res) => {
     console.log('Logged Out')
     req.session.destroy();
-    res.redirect('http://localhost:3410/')
+    res.redirect(sendBack)
 })
 
 

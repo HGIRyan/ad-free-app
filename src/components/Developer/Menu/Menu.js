@@ -28,7 +28,7 @@ class Menu extends Component {
                         <Link to='/dev/addedapps'>
                             <p>Your Apps</p>
                         </Link>
-                        <a href='http://localhost:4000/logout'>
+                        <a href={process.env.REACT_APP_LoggedOut}>
                             <p onClick={(e) => { resetState() }}> Log Out </p>
                         </a>
                     </div>
