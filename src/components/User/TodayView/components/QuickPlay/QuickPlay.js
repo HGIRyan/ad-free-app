@@ -77,7 +77,7 @@ class name extends Component {
             let first3 = this.state.games.slice(0, 4)
             mappedFirst3 = first3.map((apps) => {
                 return (
-                    <div>
+                    <div key={apps.app_id}>
                         <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
                     </div>)
             })
@@ -87,7 +87,7 @@ class name extends Component {
             let first3 = this.state.games.slice(4, 8)
             mappedMiddle = first3.map((apps) => {
                 return (
-                    <div>
+                    <div key={apps.app_id}>
                         <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
                     </div>)
             })
@@ -97,7 +97,7 @@ class name extends Component {
             let first3 = this.state.games.slice(8, 12)
             mappedMiddleLast = first3.map((apps) => {
                 return (
-                    <div>
+                    <div key={apps.app_id}>
                         <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
                     </div>
                 )

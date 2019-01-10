@@ -56,16 +56,18 @@ export default class Search extends Component {
                             <input type='text' value={this.state.searchchar} onChange={(e) => { this.setState({ searchchar: e.target.value }) }} />
                             <button onClick={() => this.search()} className='SearchBar'>Search</button>
                         </div>
-                        {this.state.apps ? {mappedSearchResults}:
-                        <h1> App Not Found, Try Searching Something Else</h1>
-                    }
-                        
+                        {/* <div>
+                            {this.state.apps ? { mappedSearchResults } :
+                                <h1> App Not Found, Try Searching Something Else</h1>}
+                        </div> */}
+                        {mappedSearchResults}
+
                     </div>
                     :
                     <div>
                         <div className='SearchBar'>
                             <input type='text' value={this.state.searchchar} onChange={(e) => { this.setState({ searchchar: e.target.value }) }} />
-                            <button onClick={() => this.event()} className='SearchBar'>Search</button>
+                            <button onClick={() => this.event()}>Search</button>
                         </div>
                         <h1>Trending</h1>
                         <h4 onClick={(e) => { this.setState({ searchchar: 'FortNite' }) }}> FortNite </h4>

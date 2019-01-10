@@ -34,11 +34,11 @@ class SearchResults extends Component {
         let { appLink, appName, app_description, current_rating, iconImg, img1, tags } = this.props
         return (
             <div className='SearchResComp'>
-                <div className='appHeader'>
+                <div className='HeaderInfo'>
                     <img src={iconImg} alt={appName} />
-                    <div className='HeaderInfo'>
+                    <div className='infoApp'>
                         <h1>{appName}</h1>
-                        <h2>{app_description.substr(0, 75)}</h2>
+                        <h4>{app_description.substr(0, 75)}</h4>
                         <h3>{current_rating}</h3>
                     </div>
                     <a href={appLink} className='headerimg' >

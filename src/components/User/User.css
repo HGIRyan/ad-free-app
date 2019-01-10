@@ -349,6 +349,95 @@ display: flex;
     justify-content: center;
     padding-top: 5vh;
 }
+/* SEARCHBAR START */
+.SearchBar {
+    height: 6vh;
+}
+.SearchBar input {
+    background: url(http://i1078.photobucket.com/albums/w498/molenmaulana/search-white_zps878b551d.png) no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: #cccccc;
+    width:107px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); 
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+}
+.SearchBar input:focus {
+    background: url(http://i1078.photobucket.com/albums/w498/molenmaulana/search-dark_zps465daf17.png) no-repeat 10px 6px #fcfcfc;
+    color: #6a6f75;
+    width: 150px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(0, 0, 0, 0.9) inset;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+/* SEARCHBAR END */
+/* SEARCHBODY START */
+.SearchResComp {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-shadow: var(--Shadow);
+    -moz-box-shadow: var(--Shadow);
+    box-shadow: var(--Shadow);
+    border-radius: 7.5%;
+    margin-bottom: 5%;
+}
+.HeaderInfo {
+    height: auto;
+    display: flex;
+    margin-bottom: 2.5%;
+    padding: 2.5%;
+    
+}
+.HeaderInfo > img {
+    max-height: 80px;
+    border-radius: 15%;
+    -webkit-box-shadow: var(--Shadow);
+    -moz-box-shadow: var(--Shadow);
+    box-shadow: var(--Shadow);
+}
+.infoApp {
+    margin-left: 2%;
+}
+.infoApp h1{
+ margin: 0;
+ font-size: 150%;
+}
+.infoApp h4{
+ margin: 0;
+ font-size: 80%;
+}
+.infoApp h3{
+ margin: 0;
+}
+.headerimg {
+    display: flex;
+}
+.SearchBody {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5%;
+    align-items: center;
+}
+.SearchBody img {
+    width: 100%;
+    border-radius: 5%;
+}
+
+/* SEARCHBODY END */
+
+
 
 /* SEARCH END */
 /* INDIVIDUAL APP PAGE START */
