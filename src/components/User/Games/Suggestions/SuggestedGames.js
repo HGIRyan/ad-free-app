@@ -45,7 +45,8 @@ class SuggestedGames extends Component {
             adaptiveHeight: true,
             centerMode: true,
             variableWidth: true,
-
+            autoplay: true,
+            autoplaySpeed: 2500,
 
         };
         let mappedFirst3;
@@ -66,8 +67,8 @@ class SuggestedGames extends Component {
         }
         let mappedMiddle;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(3, 6)
-            mappedMiddle = first3.map((apps) => {
+            let middle3 = this.state.games.slice(3, 6)
+            mappedMiddle = middle3.map((apps) => {
                 return (
                     <GameResults
                         key={apps.app_id}
@@ -82,8 +83,8 @@ class SuggestedGames extends Component {
         }
         let mappedMiddleLast;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(6, 9)
-            mappedMiddleLast = first3.map((apps) => {
+            let middleLast = this.state.games.slice(6, 9)
+            mappedMiddleLast = middleLast.map((apps) => {
                 return (
                     <GameResults
                         key={apps.app_id}
@@ -98,8 +99,8 @@ class SuggestedGames extends Component {
         }
         let mappedLast;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(9, 12)
-            mappedLast = first3.map((apps) => {
+            let last = this.state.games.slice(9, 12)
+            mappedLast = last.map((apps) => {
                 return (
                     <GameResults
                         key={apps.app_id}
@@ -114,7 +115,7 @@ class SuggestedGames extends Component {
         }
         console.log(mappedFirst3)
         return (
-            <div>
+            <div className='SuggestedAppsComp'>
                 <Slider {...settings}>
                     <div>{mappedFirst3}</div>
                     <div>{mappedMiddle}</div>

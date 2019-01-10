@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick'
 
+
+// SVG
+import Download from './../../../../Assets/baseline-cloud_download-24px.svg'
+
+
 class NewApp extends Component {
     constructor() {
         super()
@@ -39,19 +44,19 @@ class NewApp extends Component {
     }
     incrementDownloadNewApps1() {
         let appid = this.state.newApps1.app_id
-        axios.post(`/user/download/1`, {appid})
+        axios.post(`/user/download/1`, { appid })
     }
     incrementDownloadNewApps2() {
         let appid = this.state.newApps2.app_id
-        axios.post(`/user/download/2`, {appid})
+        axios.post(`/user/download/2`, { appid })
     }
     incrementDownloadNewUpdate1() {
         let appid = this.state.newUpdates1.app_id
-        axios.post(`/user/download/3`, {appid})
+        axios.post(`/user/download/3`, { appid })
     }
     incrementDownloadNewUpdate2() {
         let appid = this.state.newUpdates2.app_id
-        axios.post(`/user/download/4`, {appid})
+        axios.post(`/user/download/4`, { appid })
     }
 
     async getNewApp() {
@@ -83,55 +88,69 @@ class NewApp extends Component {
             infinite: true,
             speed: 300,
             slidesToShow: 1,
-            adaptiveHeight: true
+            centerMode: true,
+            // variableWidth: true,
+            // adaptiveHeight: true
         };
         let { newApps1, newApps2, newUpdates1, newUpdates2 } = this.state
         return (
-            <div>
+            <div className='newApps'>
                 <Slider {...settings}>
-                    <div>
-                        <img src={newApps1.img1} alt={newApps1.app_name} />
-                        <div>
-                            <h1>{newApps1.app_name}</h1>
+                    <div className='newGCard'>
+                        <div className='topGCard'>
                             <img src={newApps1.iconimg} alt={newApps1.app_name} />
-                            {/* <p>{newApps1.app_description}</p> */}
-                            <a href={newApps1.app_link}>
-                                <button onClick={() => { this.incrementDownloadNewApps1() }}>GET HERE</button>
-                            </a>
+                            <div className='nameGInfo'>
+                                <h1>{newApps1.app_name}</h1>
+                                <h3>{newApps1.current_rating}</h3>
+                                <a href={newApps1.app_link}>
+                                    <button onClick={() => { this.incrementDownloadNewApps1() }}><img src={Download} alt='DOWNLOAD' /> </button>
+                                </a>
+                            </div>
                         </div>
+                        <img src={newApps1.img1} alt={newApps1.app_name} />
                     </div>
-                    <div>
-                    <img src={newApps2.img1} alt={newApps2.app_name} />
-                        <div>
-                            <h1>{newApps2.app_name}</h1>
+
+                    <div className='newGCard'>
+                        <div className='topGCard'>
                             <img src={newApps2.iconimg} alt={newApps2.app_name} />
-                            {/* <p>{newApps2.app_description}</p> */}
-                            <a href={newApps2.app_link}>
-                                <button onClick={() => { this.incrementDownloadNewApps2() }}>GET HERE2</button>
-                            </a>
+                            <div className='nameGInfo'>
+                                <h1>{newApps2.app_name}</h1>
+                                <h3>{newApps2.current_rating} </h3>
+                                <a href={newApps2.app_link}>
+                                    <button onClick={() => { this.incrementDownloadNewApps2() }}><img src={Download} alt='DOWNLOAD' /> </button>
+                                </a>
+                            </div>
                         </div>
+                        <img src={newApps2.img1} alt={newApps2.app_name} />
                     </div>
-                    <div>
-                    <img src={newUpdates1.img1} alt={newUpdates1.app_name} />
-                        <div>
-                            <h1>{newUpdates1.app_name}</h1>
+
+                    <div className='newGCard'>
+                        <div className='topGCard'>
                             <img src={newUpdates1.iconimg} alt={newUpdates1.app_name} />
-                            {/* <p>{newUpdates1.app_description}</p> */}
-                            <a href={newUpdates1.app_link}>
-                                <button onClick={() => { this.incrementDownloadNewUpdate1() }}>GET HERE3</button>
-                            </a>
+                            <div className='nameGInfo'>
+                                <h1>{newUpdates1.app_name}</h1>
+                                <h3>{newUpdates1.current_rating} </h3>
+                                <a href={newUpdates1.app_link}>
+                                    <button onClick={() => { this.incrementDownloadNewUpdate1() }}><img src={Download} alt='DOWNLOAD' /> </button>
+                                </a>
+                            </div>
                         </div>
+                        <img src={newUpdates1.img1} alt={newUpdates1.app_name} />
                     </div>
-                    <div>
-                    <img src={newUpdates2.img1} alt={newUpdates2.app_name} />
-                        <div>
-                            <h1>{newUpdates2.app_name}</h1>
+
+                    <div className='newGCard'>
+                        <div className='topGCard'>
                             <img src={newUpdates2.iconimg} alt={newUpdates2.app_name} />
-                            {/* <p>{newUpdates2.app_description}</p> */}
-                            <a href={newUpdates2.app_link}>
-                                <button onClick={() => { this.incrementDownloadNewUpdate2() }}>GET HERE4</button>
-                            </a>
+                            <div className='nameGInfo'>
+                                <h1>{newUpdates2.app_name}</h1>
+                                <h3>{newUpdates2.current_rating} </h3>
+                                <a href={newUpdates2.app_link}>
+                                    <button onClick={() => { this.incrementDownloadNewUpdate2() }}><img src={Download} alt='DOWNLOAD' /> </button>
+                                </a>
+                            </div>
                         </div>
+                        <img src={newUpdates2.img1} alt={newUpdates2.app_name} />
+
                     </div>
                 </Slider>
             </div>

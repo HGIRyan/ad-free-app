@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios'
 // import Slider from 'react-slick'
 
+
+// SVG
+import Download from './../../../Assets/baseline-cloud_download-24px.svg'
+
+
 class AppResults extends Component {
     constructor() {
         super()
@@ -27,16 +32,19 @@ class AppResults extends Component {
     }
 
     render() {
-        let { appLink, appName, app_description, current_rating, iconImg } = this.props
+        let { appLink, appName, current_rating, iconImg } = this.props
         return (
             <div>
+               <div className='AppResultsComp'>
                 <img src={iconImg} alt={appName} />
-                <h1>{appName}</h1>
-                <h2>{app_description.substr(0, 50)}</h2>
-                <h3>{current_rating}</h3>
+                <div className='name-Rate'>
+                    <h1>{appName}</h1>
+                    <h3>{current_rating}</h3>
+                </div>
                 <a href={appLink}>
-                    <h1 onClick={() => { this.incrementDownload() }}>Get</h1>
+                    <button onClick={() => { this.incrementDownload() }}> <img src={Download} alt='DOWNLOAD' /> </button>
                 </a>
+            </div>
             </div>
         )
     }

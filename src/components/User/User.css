@@ -6,6 +6,7 @@
     --fourth: ;
     --fith: ;
     --mainText: #000000;
+    --Shadow: 6px 6px 46px -1px rgba(153,153,153,0.50);
 }
 
 
@@ -89,21 +90,27 @@ background-color: red;
 
 /* MENU BAR END */
 /* iPhone Header START */
-.iPhoneBar {
+.iPhonebar {
     display: flex;
     position: fixed;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     top: 0;
     width: 100vw;
-    height: 6vh;
+    height: 2vh;
     /* background-color: yellow; */
     opacity: 1;
     background-color: #f9f9f9;
+    color: black;
+    z-index: 5;
 }
-.iPhoneBar img {
-    height: 100px;
+.iPhonebar img {
+    padding-top: 2.5px;
+    height: 15px;
+}
+.barTime {
+    color: var(--primary)
 }
 /* iPhone Header END */
 /* .NewGame h3 {
@@ -118,6 +125,7 @@ background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 2vh;
 }
 .TodayViewHeader {
     height: 12vh;
@@ -155,14 +163,15 @@ background-color: red;
 /* TODAY HEADER END */
 /* TODAY NEW APP START */
 .NewAdFree {
-    padding-top: 5%;
-    padding-bottom: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     max-width: 90vw;
     border-radius: 10%;
+    /* height: auto; */
     /* max-height: 500vh; */
-    -webkit-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
-    -moz-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
-    box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    -webkit-box-shadow: var(--Shadow);
+    -moz-box-shadow: var(--Shadow);
+    box-shadow: var(--Shadow);
     margin-bottom: 5%;
 }
 
@@ -172,9 +181,9 @@ background-color: red;
     display: flex;
     flex-direction: column;
     height: auto;
-    -webkit-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
-    -moz-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
-    box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    -webkit-box-shadow: var(--Shadow);
+    -moz-box-shadow: var(--Shadow);
+    box-shadow: var(--Shadow);
     padding: 5%;
     margin-bottom: 5%;
     border-radius: 10%;
@@ -219,9 +228,9 @@ font-size: 80%;
     display: flex;
     flex-direction: column;
     height: auto;
-    -webkit-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
-    -moz-box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
-    box-shadow: 6px 6px 46px -1px rgba(153,153,153,0.67);
+    -webkit-box-shadow: var(--Shadow);
+    -moz-box-shadow: var(--Shadow);
+    box-shadow: var(--Shadow);
     padding: 5%;
     margin-bottom: 25%;
     border-radius: 10%;
@@ -236,15 +245,110 @@ font-size: 80%;
 /* TODAY APP SWIRL END */
 /* TODAY PAGE END */
 /* GAME PAGE START */
+ 
+.GameHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.GameHeader img {
+    max-height: 50px;
+}
 
 
+
+/* NEWAPPS START */
+.newApps {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    padding-bottom: 0%;
+    /* width: 90vw; */
+    
+}
+.newGCard {
+    display: flex;
+    /* width: 100vw; */
+    border-radius: 10%;
+}
+.newGCard > img {
+    max-height: 150px;
+    border-radius: 15%;
+    padding: 5%;
+}
+.topGCard {
+display: flex;
+}
+.topGCard img {
+    max-height: 150px;
+    border-radius: 15%;
+    padding: 5%;
+}
+.nameGInfo {
+    font-size: 65%;
+}
+.Blank {
+    margin-right: 150px;
+    height: 5px;
+    /* width: 4014px; */
+}
+/* NEWAPPS END */
+/* SUGGESTED GAMES START */
+.SuggestedAppsComp {
+    /* padding-bottom: 15%; */
+    -webkit-box-shadow: var(--Shadow);
+    -moz-box-shadow: var(--Shadow);
+    box-shadow: var(--Shadow);
+    border-radius: 7.5%;
+    border-top: 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15%;
+    /* align-items: center; */
+}
+
+.AppResultsComp {
+    display: flex;
+    width: 90vw;
+    padding-bottom: 1%;
+    border: solid 1px var(--subText);
+    /* border-radius: 7.5%; */
+    justify-content: space-between;
+}
+.AppResultsComp img {
+    max-height: 70px;
+    display: flex;
+    align-self: center;
+}
+.AppResultsComp > img {
+    max-height: 80px;
+    border-radius: 15%;
+    /* margin-right: 5%; */
+    padding: 2%;
+}
+.name-Rate h1{
+    margin: 0;
+    font-size: 150%;
+}
+
+
+
+/* SUGGESTED GAMES END */
 /* GAME PAGE END */
 /* APP PAGE START */
 
 
 /* APP PAGE END */
 /* SEARCH START */
-
+.SearchComp {
+    height: auto;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5vh;
+}
 
 /* SEARCH END */
 /* INDIVIDUAL APP PAGE START */

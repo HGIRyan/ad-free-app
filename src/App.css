@@ -494,3 +494,6 @@ h2 {
 h3 {
     color: var(--mainText);
 }
+svg {
+    fill: var(--button)
+}

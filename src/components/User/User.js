@@ -14,7 +14,7 @@ import Games from './Games/Games'
 import Apps from './AppGenre/Apps'
 import Search from './Search/Search'
 import SearchResults from './Search/SearchResults'
-import iPhoneHeader from './iPhoneHeader'
+import IPhoneHeader from './iPhoneHeader'
 class User extends Component {
     constructor() {
         super()
@@ -43,7 +43,7 @@ class User extends Component {
                             <div><h1>You are a developer, Please Use our Desktop Page 'LINK'</h1></div>
                             :
                             <div >
-                                <iPhoneHeader />
+                                <IPhoneHeader />
                                 <div className='App'>
                                     <Switch className='userComponents'>
                                         <Route component={TodayView} path='/user/today' />

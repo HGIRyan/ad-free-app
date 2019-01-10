@@ -23,14 +23,15 @@ class Apps extends Component {
         let { appLink, appName, app_description, current_rating, iconImg, img1, img2, img3, img4, img5, img6, tags } = this.props
         return (
             <div className='app-Card'>
-                    <div className='Title-Name'>
-                        <img src={iconImg} alt={appName + ' Logo'} className='appLogoAdded' />
-                        <div className='name-rating'>
-                            <h1>{appName}</h1>
-                            <h1 id='RATING'>Rating: {current_rating}</h1>
-                            <a href={appLink}><img src={Download} alt='DOWNLOAD'/></a>
-                        </div>
+                <div className='Title-Name'>
+                    <img src={iconImg} alt={appName + ' Logo'} className='appLogoAdded' />
+                    <div className='name-rating'>
+                        <h1>{appName}</h1>
+                        <h1 id='RATING'>Rating: {current_rating}</h1>
+                        <a href={appLink}><img src={Download} alt='DOWNLOAD' /></a>
+                    </div>
                 </div>
+                <hr />
                 <div className='screenshotsDisplay'>
                     <h1>Screenshots</h1>
                     <Slider {...settings}>

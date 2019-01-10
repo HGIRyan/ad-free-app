@@ -63,8 +63,8 @@ class SuggestedApps extends Component {
         }
         let mappedMiddle;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(3, 6)
-            mappedMiddle = first3.map((apps) => {
+            let middle3 = this.state.games.slice(3, 6)
+            mappedMiddle = middle3.map((apps) => {
                 return (
                     <AppResults
                         key={apps.app_id}
@@ -79,8 +79,8 @@ class SuggestedApps extends Component {
         }
         let mappedMiddleLast;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(6, 9)
-            mappedMiddleLast = first3.map((apps) => {
+            let middleLast3 = this.state.games.slice(6, 9)
+            mappedMiddleLast = middleLast3.map((apps) => {
                 return (
                     <AppResults
                         key={apps.app_id}
@@ -95,8 +95,8 @@ class SuggestedApps extends Component {
         }
         let mappedLast;
         if (this.state.games && !this.state.hasRan) {
-            let first3 = this.state.games.slice(9, 12)
-            mappedLast = first3.map((apps) => {
+            let Last = this.state.games.slice(9, 12)
+            mappedLast = Last.map((apps) => {
                 return (
                     <AppResults
                         key={apps.app_id}
@@ -110,7 +110,7 @@ class SuggestedApps extends Component {
             })
         }
         return (
-            <div>
+            <div className='SuggestedAppsComp'>
                 <Slider {...settings}>
                     <div>{mappedFirst3}</div>
                     <div>{mappedMiddle}</div>

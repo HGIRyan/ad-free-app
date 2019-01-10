@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+
+// SVG
+import Download from './../../../Assets/baseline-cloud_download-24px.svg'
+
+
 class SearchResults extends Component {
     constructor() {
         super()
@@ -28,17 +33,19 @@ class SearchResults extends Component {
     render() {
         let { appLink, appName, app_description, current_rating, iconImg, img1, tags } = this.props
         return (
-            <div>
+            <div className='SearchResComp'>
                 <div className='appHeader'>
                     <img src={iconImg} alt={appName} />
-                    <h1>{appName}</h1>
-                    <h2>{app_description.substr(0, 75)}</h2>
-                    <h3>{current_rating}</h3>
-                    <a href={appLink}>
-                       <button onClick={()=>{this.incrementDownload()}}>Get Here</button>
+                    <div className='HeaderInfo'>
+                        <h1>{appName}</h1>
+                        <h2>{app_description.substr(0, 75)}</h2>
+                        <h3>{current_rating}</h3>
+                    </div>
+                    <a href={appLink} className='headerimg' >
+                        <button onClick={() => { this.incrementDownload() }}><img src={Download} alt='DOWNLOAD' /> </button>
                     </a>
                 </div>
-                <div>
+                <div className='SearchBody'>
                     <img src={img1} alt={appName} />
                     {tags}
                 </div>

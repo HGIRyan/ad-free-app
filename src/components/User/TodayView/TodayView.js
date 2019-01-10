@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './../User.css'
-import iPhoneHeader from './../iPhoneHeader'
+
 // Imports
 import AdFree from './../../../Assets/Ad-FreePic.png'
 import SnapHowTo from './../../../Assets/SnapHowTo.png'
@@ -20,7 +20,6 @@ class TodayView extends Component {
                     <Header />
                 </div>
                 <div className='TodayViewBody'>
-                    <iPhoneHeader/>
                     <img src={AdFree} alt='' className='NewAdFree' />
                     <img src={SnapHowTo} alt='' className='NewAdFree' />
                     <FeaturedProductivity />

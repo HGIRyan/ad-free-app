@@ -49,18 +49,29 @@ export default class Search extends Component {
             )
         })
         return (
-            <div>
+            <div className='SearchComp'>
                 {this.state.result ?
                     <div>
-                        <input type='text' value={this.state.searchchar} onChange={(e) => { this.setState({ searchchar: e.target.value }) }} />
-                        <button onClick={() => this.search()}>Search</button>
-                        {mappedSearchResults}
+                        <div className='SearchBar'>
+                            <input type='text' value={this.state.searchchar} onChange={(e) => { this.setState({ searchchar: e.target.value }) }} />
+                            <button onClick={() => this.search()} className='SearchBar'>Search</button>
+                        </div>
+                        {this.state.apps ? {mappedSearchResults}:
+                        <h1> App Not Found, Try Searching Something Else</h1>
+                    }
+                        
                     </div>
                     :
                     <div>
-                        <input type='text' value={this.state.searchchar} onChange={(e) => { this.setState({ searchchar: e.target.value }) }} />
-                        <button onClick={() => this.event()}>Search</button>
+                        <div className='SearchBar'>
+                            <input type='text' value={this.state.searchchar} onChange={(e) => { this.setState({ searchchar: e.target.value }) }} />
+                            <button onClick={() => this.event()} className='SearchBar'>Search</button>
+                        </div>
                         <h1>Trending</h1>
+                        <h4 onClick={(e) => { this.setState({ searchchar: 'FortNite' }) }}> FortNite </h4>
+                        <h4 onClick={(e) => { this.setState({ searchchar: 'MineCraft' }) }}> MineCraft </h4>
+                        <h4 onClick={(e) => { this.setState({ searchchar: 'iBotta' }) }}> iBotta </h4>
+                        <h4 onClick={(e) => { this.setState({ searchchar: 'Sweat' }) }}> Sweat </h4>
                         {/* {mappedSearchResults} */}
                     </div>}
 

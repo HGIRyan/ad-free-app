@@ -24,13 +24,13 @@ class iPhoneHeader extends Component {
                 <div className='ServiceReception'>
                     <img src={Data} alt='' />
                     <img src={Wifi} alt='' />
-                    RIGHT HERE
                 </div>
                 <div className='barTime'>
                     <Clock
-                        format={'HH:MM AM/PM'}
+                        format={'HH:MM '}
                         ticking={true}
                         timezone={'America/Denver'} />
+                        PM
                 </div>
                 <div className='barMisc'>
                     <img src={Lock} alt='' />
