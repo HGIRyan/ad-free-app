@@ -72,7 +72,7 @@ Ad-Free-App Store.
 
 On the Add an App Page after copying your link you can input the link in the specified input and the software will autofill relevent areas where all you need to do is input a little extra more specific data for our store.
 
-*Before adding your app to our store you must first register and add it to the Apple App Store and after doing so you can copy the link to your app from the itunes store by following the givin instructions 
+Before adding your app to our store you must first register and add it to the Apple App Store and after doing so you can copy the link to your app from the itunes store by following the givin instructions 
 -
 -
 -
