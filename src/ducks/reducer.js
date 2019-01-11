@@ -7,7 +7,8 @@ const initialState = {
     isDev: false,
     developer:'',
     dev_id:'',
-    chartData:{}
+    chartData:{},
+    selectedAppData: {}
 }
 
 // DEFINE
@@ -22,6 +23,7 @@ const UPDATE_DEVID = 'UPDATE_DEVID'
 const UPDATE_CHARTDATA = 'UPDATE_CHARTDATA'
 const RESET_STATE = 'RESET_STATE'
 const DATA_DUMP = 'DATA_DUMP'
+const SELECTEDAPPDATA = 'SELECTEDAPPDATA'
 
 
 
@@ -30,6 +32,12 @@ export function dataDump(user_id) {
     return {
         type: DATA_DUMP,
         payload: user_id
+    }
+}
+export function selectedAppData(selectedAppData){
+    return {
+        type: SELECTEDAPPDATA,
+        payload: selectedAppData
     }
 }
 export function update_user_id(user_id) {
@@ -116,8 +124,10 @@ export default function reducer(state = initialState, action) {
             return { ...state, chartData: action.payload }
         case RESET_STATE:
             return { user_id: 0, email: '', username: '', autoRenew: '', renewalPeriod: '', }
-            case DATA_DUMP:
+        case DATA_DUMP:
             return {...state, ...action.payload}
+        case SELECTEDAPPDATA:
+            return {...state, selectedAppData: action.payload }
         default:
             return state;
     }

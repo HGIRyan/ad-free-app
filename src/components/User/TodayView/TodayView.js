@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './../User.css'
+import { Link } from 'react-router-dom'
 
 // Imports
 import AdFree from './../../../Assets/Ad-FreePic.png'
@@ -20,7 +21,9 @@ class TodayView extends Component {
                     <Header />
                 </div>
                 <div className='TodayViewBody'>
-                    <img src={AdFree} alt='' className='NewAdFree' />
+                    <Link to='/user/app'>
+                        <img src={AdFree} alt='' className='NewAdFree' />
+                    </Link>
                     <img src={SnapHowTo} alt='' className='NewAdFree' />
                     <FeaturedProductivity />
                     <QuickPLay />

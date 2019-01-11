@@ -490,6 +490,7 @@ p {
 }
 div {
     color: var(--subText);
+    outline: none;
 }
 h1 {
     color: var(--mainText);
@@ -502,7 +503,4 @@ h3 {
 }
 svg {
     fill: var(--button)
-}
-div {
-    outline: none;
 }

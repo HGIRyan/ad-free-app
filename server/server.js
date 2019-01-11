@@ -402,3 +402,16 @@ app.post(`/user/download/dynamic`, async (req, res) => {
     // console.log('Download Increment')
     res.sendStatus(200)
 })
+
+
+// INDI APP
+app.post('/user/appName/', async (req, res) => {
+    console.log(req.body)
+    let { app_id } = req.body
+    console.log(app_id);
+    // console.log('Payton')
+    let db = req.app.get('db')
+    let getApp1 = await db.getIndiApp([app_id])
+    let getApp = getApp1[0]
+    res.status(200).send(getApp)
+})

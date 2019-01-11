@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import Slider from 'react-slick'
 import axios from 'axios'
 // import GameResults from './../../../Games/Suggestions/GameResults'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { selectedAppData } from './../../../../../ducks/reducer'
 
-class name extends Component {
+
+class QuickPlay extends Component {
     constructor() {
         super()
 
@@ -70,7 +74,7 @@ class name extends Component {
             // centerMode: true,
             variableWidth: true,
             autoplay: true,
-            autoplaySpeed:1750,
+            autoplaySpeed: 1750,
         };
         let mappedFirst3;
         if (this.state.games && !this.state.hasRan) {
@@ -78,7 +82,9 @@ class name extends Component {
             mappedFirst3 = first3.map((apps) => {
                 return (
                     <div key={apps.app_id}>
-                        <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                        <Link to='/user/app' onClick={(e) => { this.props.selectedAppData(apps.app_id) }}>
+                            <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                        </Link>
                     </div>)
             })
         }
@@ -88,7 +94,10 @@ class name extends Component {
             mappedMiddle = first3.map((apps) => {
                 return (
                     <div key={apps.app_id}>
-                        <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                        <Link to='/user/app' onClick={(e) => { this.props.selectedAppData(apps.app_id) }}>
+                        {console.log(apps.app_id)}
+                            <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                        </Link>
                     </div>)
             })
         }
@@ -98,7 +107,9 @@ class name extends Component {
             mappedMiddleLast = first3.map((apps) => {
                 return (
                     <div key={apps.app_id}>
-                        <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                        <Link to='/user/app' onClick={(e) => { this.props.selectedAppData(apps.app_id) }}>
+                            <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
+                        </Link>
                     </div>
                 )
             })
@@ -120,4 +131,4 @@ class name extends Component {
     }
 }
 
-export default name;
+export default connect(null, { selectedAppData })(QuickPlay);

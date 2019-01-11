@@ -1,6 +1,6 @@
 /* PRIMARY THEME COLORS */
 :root {
-    --background:#FFFFFF ;
+    --background:black ;
     --subText:#B2B2B4  ;
     --Button: #0079FE ;
     --fourth: ;
@@ -451,6 +451,59 @@ display: flex;
 
 
 /* USER SETTINGS PAGE END */
+/* APP PAGE START */
+.topBoxApp {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    /* background-color: green; */
+    margin-bottom: 10%;
+}
+.appLogoApp {
+    /* background-color: yellow; */
+    /* margin: auto; */
+}
+.appLogoApp img {
+    border-radius: 15%;
+    max-width: 100px;
+}
+.appNameSuch {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+    padding-left: 0;
+    /* padding-bottom: 10%; */
+}
+.appNameSuch h1 {
+    margin: 0;
+    padding: 0;
+    padding-top: 5%;
+}
+.appNameSuch h3 {
+    margin: 0;
+    padding: 0;
+    padding-top: 5%;
+    margin-bottom: 20%;
+
+}
+.DownloadCloud {
+    display: flex;
+}
+.DownloadCloud img {
+    width: 50px;
+    margin-left: 80%;
+}
+.AppSlider {
+    width: 100%;
+}
+.AppSlider img {
+    max-width: 100%;
+    margin-right: 20px;
+    border-radius: 5%;
+}
+
+
+/* APP PAGE END */
 } 
 
 /* Tablets */

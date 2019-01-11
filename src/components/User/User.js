@@ -15,6 +15,7 @@ import Apps from './AppGenre/Apps'
 import Search from './Search/Search'
 import SearchResults from './Search/SearchResults'
 import IPhoneHeader from './iPhoneHeader'
+import IndiApp from './IndiApp'
 
 // require('dotenv').config()
 // let {LoggedOut} = process.env;
@@ -56,6 +57,7 @@ class User extends Component {
                                         <Route component={Apps} path='/user/apps' />
                                         <Route component={Search} path='/user/search' exact />
                                         <Route component={SearchResults} path='/user/search/results' />
+                                        <Route component={IndiApp} path='/user/app' />
                                     </Switch>
                                 </div>
                                 <MenuBar />
