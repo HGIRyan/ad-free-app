@@ -1,0 +1,7 @@
+.loginPage {
+    width: 50vw;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
