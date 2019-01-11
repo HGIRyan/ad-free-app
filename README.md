@@ -28,7 +28,8 @@ Heres the solution! with a low price of $2.50 a month you can get rid of all of 
 
 <img alt="ScreenShot" align="left" width="120" height="220" src="https://user-images.githubusercontent.com/25380057/51002275-0465d580-14f0-11e9-9120-55e32d249c21.png" >
 
-    On the homepage you will be greeted to a familiar sight as I have tried to stay close to the same design choices that Apple has made in their iOS Apps Store 
+On the homepage you will be greeted to a familiar sight as I have tried to stay close to the same design choices that Apple has made in their iOS Apps Store 
+    
 -
 -
 -
@@ -36,7 +37,8 @@ Heres the solution! with a low price of $2.50 a month you can get rid of all of 
 
 <img alt="ScreenShot" align="right" width="120" height="220" src="https://user-images.githubusercontent.com/25380057/51003686-01211880-14f5-11e9-946b-d1911215dfbe.png" >
 
-    On the Game Page you have the Dev choice mobile games at the top of the page for maximum user viewability and suggested games tailored for the user and sections to view more specific subgenres of mobile games
+On the Game Page you have the Dev choice mobile games at the top of the page for maximum user viewability and suggested games tailored for the user and sections to view more specific subgenres of mobile games
+    
 -
 -
 -
@@ -44,7 +46,8 @@ Heres the solution! with a low price of $2.50 a month you can get rid of all of 
 
 <img alt="ScreenShot" align="left" width="120" height="220" src="https://user-images.githubusercontent.com/25380057/51003727-21e96e00-14f5-11e9-955e-87518cd48967.png" >
 
-    On the App Page you have the Dev choice mobile apps such as Productivity, Organization and Fitness on a scrollable slideshow on top of the page for maximum viewability
+On the App Page you have the Dev choice mobile apps such as Productivity, Organization and Fitness on a scrollable slideshow on top of the page for maximum viewability
+    
 -
 -
 -
@@ -52,7 +55,8 @@ Heres the solution! with a low price of $2.50 a month you can get rid of all of 
 
 <img alt="ScreenShot" align="right" width="120" height="220" src="https://user-images.githubusercontent.com/25380057/51003772-49403b00-14f5-11e9-95c2-21df93747ec1.png" >
 
-    On the Search Page you have trending options displayed calculated from the most searched apps in the past 24 hours. You also have expected search functionality to return the most relevant app per search then ordered by popularity
+On the Search Page you have trending options displayed calculated from the most searched apps in the past 24 hours. You also have expected search functionality to return the most relevant app per search then ordered by popularity
+    
 -
 -
 -
@@ -61,7 +65,8 @@ Heres the solution! with a low price of $2.50 a month you can get rid of all of 
 ### Developer Experience ### 
 <img alt="ScreenShot" align="left" width="280" height="160" src="https://user-images.githubusercontent.com/25380057/51003984-09c61e80-14f6-11e9-8a19-dab5d26178bb.png" >
 
-    On the Developer Info Page displays important information and statistics for the developer on the status of their app. The graph relevance shows the relation of ordered pairs for the Developer more easily can make educated decisions on how or where to promote their app
+On the Developer Info Page displays important information and statistics for the developer on the status of their app. The graph relevance shows the relation of ordered pairs for the Developer more easily can make educated decisions on how or where to promote their app
+    
 -
 -
 -
@@ -72,6 +77,7 @@ Heres the solution! with a low price of $2.50 a month you can get rid of all of 
 On the Add an App Page after copying your link you can input the link in the specified input and the software will autofill relevent areas where all you need to do is input a little extra more specific data for our store.
 
 Before adding your app to our store you must first register and add it to the Apple App Store and after doing so you can copy the link to your app from the itunes store by following the givin instructions 
+
 -
 -
 -
