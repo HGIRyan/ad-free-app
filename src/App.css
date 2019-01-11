@@ -470,6 +470,12 @@ COLOR THEME
 a {
     text-decoration: none;
 }
+a:hover {
+    cursor: pointer;
+}
+button:hover {
+    cursor: pointer;
+}
 
 .App {
     /* display: flex; */
@@ -496,4 +502,7 @@ h3 {
 }
 svg {
     fill: var(--button)
+}
+div {
+    outline: none;
 }
