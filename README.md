@@ -1,7 +1,6 @@
 # Ad-Free-App #
 Ever get annoyed with ads on those random and mostly dumb mobile games? 
-Heres the solution! with a low price of $2.50 a month you can get rid of all those dumb ads and browse all of those on the
-Ad-Free-App Store. 
+Heres the solution! with a low price of $2.50 a month you can get rid of all of said dumb ads and browse all of our partner developers  on the Ad-Free-App Store. 
 
 ## Key Features ##
 * User Side
