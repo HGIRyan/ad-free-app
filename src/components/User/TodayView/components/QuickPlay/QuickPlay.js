@@ -4,7 +4,7 @@ import axios from 'axios'
 // import GameResults from './../../../Games/Suggestions/GameResults'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { selectedAppData } from './../../../../../ducks/reducer'
+import { setSelectedAppData } from './../../../../../ducks/reducer'
 
 
 class QuickPlay extends Component {
@@ -82,7 +82,7 @@ class QuickPlay extends Component {
             mappedFirst3 = first3.map((apps) => {
                 return (
                     <div key={apps.app_id}>
-                        <Link to='/user/app' onClick={(e) => { this.props.selectedAppData(apps.app_id) }}>
+                        <Link to='/user/app' onClick={(e) => { this.props.setSelectedAppData(apps.app_id) }}>
                             <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
                         </Link>
                     </div>)
@@ -94,7 +94,7 @@ class QuickPlay extends Component {
             mappedMiddle = first3.map((apps) => {
                 return (
                     <div key={apps.app_id}>
-                        <Link to='/user/app' onClick={(e) => { this.props.selectedAppData(apps.app_id) }}>
+                        <Link to='/user/app' onClick={(e) => { this.props.setSelectedAppData(apps.app_id) }}>
                         {console.log(apps.app_id)}
                             <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
                         </Link>
@@ -107,7 +107,7 @@ class QuickPlay extends Component {
             mappedMiddleLast = first3.map((apps) => {
                 return (
                     <div key={apps.app_id}>
-                        <Link to='/user/app' onClick={(e) => { this.props.selectedAppData(apps.app_id) }}>
+                        <Link to='/user/app' onClick={(e) => { this.props.setSelectedAppData(apps.app_id) }}>
                             <img src={apps.iconimg} alt='' className='SwirlAppLogo' />
                         </Link>
                     </div>
@@ -131,4 +131,4 @@ class QuickPlay extends Component {
     }
 }
 
-export default connect(null, { selectedAppData })(QuickPlay);
+export default connect(null, { setSelectedAppData })(QuickPlay);

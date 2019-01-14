@@ -214,7 +214,7 @@ app.get('/user/search/:searchchar', async (req, res) => {
 // NEWAPP1
 app.get('/user/games/newapp1/:newapp1', async (req, res) => {
     let { newapp1 } = req.params
-    console.log(newapp1);
+    // console.log(newapp1);
     // console.log('Payton')
     let db = req.app.get('db')
     let getApp1 = await db.get_newApp([newapp1])
@@ -272,7 +272,7 @@ app.get('/user/games/tags/:tags', async (req, res) => {
 // DEV STUFF
 
 app.post(`/dev/appdata/chart`, async (req, res) => {
-    console.log('hitting')
+    // console.log('hitting')
     let {dev_id, app_id} = req.body;
     let db = req.app.get('db');
     let getAppData = await db.getAppData([dev_id, app_id])
@@ -389,29 +389,45 @@ app.post(`/user/download/4`, async (req, res) => {
 app.post(`/user/view/dynamic`, async (req, res) => {
     let { appid } = req.body;
     let db = req.app.get('db');
-    console.log(req.body)
+    // console.log(req.body)
     await db.incrementView([appid])
+    res.sendStatus(200)
+})
+app.post(`/user/view/dynamicc`, async (req, res) => {
+    let { app_id } = req.body;
+    let db = req.app.get('db');
+    // console.log(req.body)
+    await db.incrementView([app_id])
     res.sendStatus(200)
 })
 // DOWNLOADCOUNT
 app.post(`/user/download/dynamic`, async (req, res) => {
     let { appid } = req.body;
     let db = req.app.get('db');
-    console.log(req.body)
+    // console.log(req.body)
     await db.incrementDownload([appid])
+    // console.log('Download Increment')
+    res.sendStatus(200)
+})
+app.post(`/user/download/dynamicc`, async (req, res) => {
+    let { app_id } = req.body;
+    let db = req.app.get('db');
+    // console.log(req.body)
+    await db.incrementDownload([app_id])
     // console.log('Download Increment')
     res.sendStatus(200)
 })
 
 
 // INDI APP
-app.post('/user/appName/', async (req, res) => {
-    console.log(req.body)
+app.post('/user/appName', async (req, res) => {
+    // console.log(req.body)
     let { app_id } = req.body
-    console.log(app_id);
+    // console.log(app_id);
     // console.log('Payton')
     let db = req.app.get('db')
     let getApp1 = await db.getIndiApp([app_id])
     let getApp = getApp1[0]
+    // console.log(getApp1)
     res.status(200).send(getApp)
 })

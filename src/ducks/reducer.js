@@ -34,7 +34,7 @@ export function dataDump(user_id) {
         payload: user_id
     }
 }
-export function selectedAppData(selectedAppData){
+export function setSelectedAppData(selectedAppData){
     return {
         type: SELECTEDAPPDATA,
         payload: selectedAppData

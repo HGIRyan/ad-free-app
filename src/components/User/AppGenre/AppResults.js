@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 // import Slider from 'react-slick'
-
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setSelectedAppData } from './../../../ducks/reducer'
 
 // SVG
 import Download from './../../../Assets/baseline-cloud_download-24px.svg'
@@ -34,23 +36,27 @@ class AppResults extends Component {
     render() {
         let { appLink, appName, current_rating, iconImg } = this.props
         return (
-            <div>
-               <div className='AppResultsComp'>
-                <img src={iconImg} alt={appName} />
-                <div className='name-Rate'>
-                    <h1>{appName}</h1>
-                    <h3>{current_rating}</h3>
+            <Link
+                to='/user/app'
+                onClick={(e) => { this.props.setSelectedAppData(this.props.appid) }}>
+                <div>
+                    <div className='AppResultsComp'>
+                        <img src={iconImg} alt={appName} />
+                        <div className='name-Rate'>
+                            <h1>{appName}</h1>
+                            <h3>{current_rating}</h3>
+                        </div>
+                        <a href={appLink}>
+                            <button onClick={() => { this.incrementDownload() }}> <img src={Download} alt='DOWNLOAD' /> </button>
+                        </a>
+                    </div>
                 </div>
-                <a href={appLink}>
-                    <button onClick={() => { this.incrementDownload() }}> <img src={Download} alt='DOWNLOAD' /> </button>
-                </a>
-            </div>
-            </div>
+            </Link>
         )
     }
 }
 
-export default AppResults;
+export default connect(null, { setSelectedAppData })(AppResults);
 
     // function GameResults(props) {
     //     let { appLink, appName, app_description, current_rating, iconImg, img1, tags } = props

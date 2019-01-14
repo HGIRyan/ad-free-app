@@ -3,7 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux';
 import Download from './../../Assets/baseline-cloud_download-24px.svg'
 import Slider from 'react-slick'
-import { selectedAppData } from './../../ducks/reducer'
+import { setSelectedAppData } from './../../ducks/reducer'
 
 class IndiApp extends Component {
     constructor() {
@@ -19,34 +19,39 @@ class IndiApp extends Component {
             app: this.props.selectedAppData
         })
         console.log(this.state.app)
+        console.log(this.props.username)
         console.log('Hi')
-        // if (!this.state.app.app_description) {
-        //      await this.getAppinfo() }
-        if (this.state.app.app_description.length > 100) {
-            this.setState({
-                longDesc: true
-            })
+        if (!this.state.app.app_description) {
+             await this.getAppinfo() }
+        if(this.state.app.app_description.length > 100){
+            this.setState({longDesc: true})
         }
-        await this.incrementView()
+        await this.incrementView();
     }
-    // async getAppinfo() {
-    //     let { app_id } = this.state.app
-    //     let res = await axios.post(`/user/appName`, app_id)
-    //     console.log(res)
-
-    // }
+    async getAppinfo() {
+        let { app } = this.state
+        let app_id = app
+        console.log('app '+app, 'app_id '+app_id)
+        let res = await axios.post(`/user/appName`, {app_id})
+        console.log(res.data)
+        this.setState({
+            app: res.data
+        })
+        console.log(this.state.app)
+    }
 
     async incrementView() {
         let { app_id } = this.state.app
-        await axios.post(`/user/view/dynamic`, { app_id })
+        await axios.post(`/user/view/dynamicc`, { app_id })
     }
     async incrementDownload() {
         let { app_id } = this.state.app
-        await axios.post(`/user/download/dynamic`, { app_id })
+        await axios.post(`/user/download/dynamicc`, { app_id })
         this.setState({ hasRan: true })
     }
     handleBack() {
         this.props.history.goBack();
+        this.props.setSelectedAppData({})
     }
     render() {
         var settings = {
@@ -60,6 +65,7 @@ class IndiApp extends Component {
 
         };
         let { app_name, app_description, current_rating, iconimg, img1, img2, img3, img4, tags, app_link, apple_app_id } = this.state.app
+        console.log(this.props.selectedAppData)
         return (
             <div className='TodayHeader'>
                 <div className='Goback'>
@@ -113,4 +119,4 @@ class IndiApp extends Component {
 function mapPropsToState(state) {
     return { ...state }
 }
-export default connect(mapPropsToState, { selectedAppData })(IndiApp);
+export default connect(mapPropsToState, {setSelectedAppData})(IndiApp);

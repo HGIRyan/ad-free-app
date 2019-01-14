@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 // Imports
 import Download from './../../../../../Assets/baseline-cloud_download-24px.svg'
 import { connect } from 'react-redux'
-import { selectedAppData } from './../../../../../ducks/reducer'
+import { setSelectedAppData } from './../../../../../ducks/reducer'
 
 class FeaturedProductivity extends Component {
     constructor() {
@@ -30,7 +30,7 @@ class FeaturedProductivity extends Component {
             let { newapp1 } = this.state;
             // console.log(tags)
             let res = await axios.get(`/user/games/newapp1/${newapp1}`)
-            console.log(res.data)
+            // console.log(res.data)
             this.setState({
                 games: res.data,
             })
@@ -49,7 +49,7 @@ class FeaturedProductivity extends Component {
         console.log(this.state.games)
     }
     selectAppData() {
-        this.props.selectedAppData(this.state.games)
+        this.props.setSelectedAppData(this.state.games)
     }
 
 
@@ -88,4 +88,4 @@ class FeaturedProductivity extends Component {
     }
 
 }
-export default connect(null, { selectedAppData })(FeaturedProductivity)
+export default connect(null, { setSelectedAppData })(FeaturedProductivity)

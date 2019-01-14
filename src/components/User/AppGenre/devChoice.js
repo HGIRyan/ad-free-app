@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick'
-
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { setSelectedAppData } from './../../../ducks/reducer'
 
 // SVG
 import Download from './../../../Assets/baseline-cloud_download-24px.svg'
@@ -96,67 +98,81 @@ class DevChoice extends Component {
         let { newApps1, newApps2, newUpdates1, newUpdates2 } = this.state
         return (
             <div>
-                 <Slider {...settings}>
+                <Slider {...settings}>
                     <div className='newGCard'>
-                        <div className='topGCard'>
-                            <img src={newApps1.iconimg} alt={newApps1.app_name} />
-                            <div className='nameGInfo'>
-                                <h1>{newApps1.app_name}</h1>
-                                <h3>{newApps1.current_rating}</h3>
-                                <a href={newApps1.app_link}>
-                                    <button onClick={() => { this.incrementDownloadNewApps1() }}><img src={Download} alt='DOWNLOAD' /> </button>
-                                </a>
+                        <Link
+                            to='/user/app'
+                            onClick={(e) => { this.props.setSelectedAppData(newApps1) }}>
+                            <div className='topGCard'>
+                                <img src={newApps1.iconimg} alt={newApps1.app_name} />
+                                <div className='nameGInfo'>
+                                    <h1>{newApps1.app_name}</h1>
+                                    <h3>{newApps1.current_rating}</h3>
+                                    <a href={newApps1.app_link}>
+                                        <button onClick={() => { this.incrementDownloadNewApps1() }}><img src={Download} alt='DOWNLOAD' /> </button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <img src={newApps1.img1} alt={newApps1.app_name} />
-                        <img src={Blank} alt=''  className='Blank'/>
-
+                            <img src={newApps1.img1} alt={newApps1.app_name} />
+                            <img src={Blank} alt='' className='Blank' />
+                        </Link>
                     </div>
 
                     <div className='newGCard'>
-                        <div className='topGCard'>
-                            <img src={newApps2.iconimg} alt={newApps2.app_name} />
-                            <div className='nameGInfo'>
-                                <h1>{newApps2.app_name}</h1>
-                                <h3>{newApps2.current_rating} </h3>
-                                <a href={newApps2.app_link}>
-                                    <button onClick={() => { this.incrementDownloadNewApps2() }}><img src={Download} alt='DOWNLOAD' /> </button>
-                                </a>
+                        <Link
+                            to='/user/app'
+                            onClick={(e) => { this.props.setSelectedAppData(newApps2) }}>
+                            <div className='topGCard'>
+                                <img src={newApps2.iconimg} alt={newApps2.app_name} />
+                                <div className='nameGInfo'>
+                                    <h1>{newApps2.app_name}</h1>
+                                    <h3>{newApps2.current_rating} </h3>
+                                    <a href={newApps2.app_link}>
+                                        <button onClick={() => { this.incrementDownloadNewApps2() }}><img src={Download} alt='DOWNLOAD' /> </button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <img src={newApps2.img1} alt={newApps2.app_name} />
-                        <img src={Blank} alt=''  className='Blank'/>
+                            <img src={newApps2.img1} alt={newApps2.app_name} />
+                            <img src={Blank} alt='' className='Blank' />
+                        </Link>
                     </div>
 
                     <div className='newGCard'>
-                        <div className='topGCard'>
-                            <img src={newUpdates1.iconimg} alt={newUpdates1.app_name} />
-                            <div className='nameGInfo'>
-                                <h1>{newUpdates1.app_name}</h1>
-                                <h3>{newUpdates1.current_rating} </h3>
-                                <a href={newUpdates1.app_link}>
-                                    <button onClick={() => { this.incrementDownloadNewUpdate1() }}><img src={Download} alt='DOWNLOAD' /> </button>
-                                </a>
+                        <Link
+                            to='/user/app'
+                            onClick={(e) => { this.props.setSelectedAppData(newUpdates1) }}>
+                            <div className='topGCard'>
+                                <img src={newUpdates1.iconimg} alt={newUpdates1.app_name} />
+                                <div className='nameGInfo'>
+                                    <h1>{newUpdates1.app_name}</h1>
+                                    <h3>{newUpdates1.current_rating} </h3>
+                                    <a href={newUpdates1.app_link}>
+                                        <button onClick={() => { this.incrementDownloadNewUpdate1() }}><img src={Download} alt='DOWNLOAD' /> </button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <img src={newUpdates1.img1} alt={newUpdates1.app_name} />
-                        <img src={Blank} alt='' className='Blank'/>
+                            <img src={newUpdates1.img1} alt={newUpdates1.app_name} />
+                            <img src={Blank} alt='' className='Blank' />
+                        </Link>
                     </div>
 
                     <div className='newGCard'>
-                        <div className='topGCard'>
-                            <img src={newUpdates2.iconimg} alt={newUpdates2.app_name} />
-                            <div className='nameGInfo'>
-                                <h1>{newUpdates2.app_name}</h1>
-                                <h3>{newUpdates2.current_rating} </h3>
-                                <a href={newUpdates2.app_link}>
-                                    <button onClick={() => { this.incrementDownloadNewUpdate2() }}><img src={Download} alt='DOWNLOAD' /> </button>
-                                </a>
+                        <Link
+                            to='/user/app'
+                            onClick={(e) => { this.props.setSelectedAppData(newUpdates2) }}>
+                            <div className='topGCard'>
+                                <img src={newUpdates2.iconimg} alt={newUpdates2.app_name} />
+                                <div className='nameGInfo'>
+                                    <h1>{newUpdates2.app_name}</h1>
+                                    <h3>{newUpdates2.current_rating} </h3>
+                                    <a href={newUpdates2.app_link}>
+                                        <button onClick={() => { this.incrementDownloadNewUpdate2() }}><img src={Download} alt='DOWNLOAD' /> </button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <img src={newUpdates2.img1} alt={newUpdates2.app_name} />
-                        <img src={Blank} alt='' className='Blank'/>
-
+                            <img src={newUpdates2.img1} alt={newUpdates2.app_name} />
+                            <img src={Blank} alt='' className='Blank' />
+                        </Link>
                     </div>
                 </Slider>
             </div>
@@ -164,4 +180,4 @@ class DevChoice extends Component {
     }
 }
 
-export default DevChoice;
+export default connect(null, { setSelectedAppData })(DevChoice);
