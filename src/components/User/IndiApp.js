@@ -101,12 +101,14 @@ class IndiApp extends Component {
                         <h3 onClick={(e) => this.setState(prevState => ({ longDesc: !prevState.longDesc }))}>Read More...</h3>
                     </div>
                     :
-                    <div>
+                    <div className='appDesc'>
                         {app_description}
                         <h3 onClick={(e) => this.setState(prevState => ({ longDesc: !prevState.longDesc }))}>Read Less...</h3>
                     </div>
-                }
+                } 
                 {this.state.app.app_id}
+                {this.state.app.tags}
+
                 <hr />
                 <hr />
                 <hr />

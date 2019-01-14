@@ -42,6 +42,7 @@ class AddedApps extends Component {
                     img5={appInfo.img5}
                     img6={appInfo.img6}
                     tags={appInfo.tags}
+                    app_id={appInfo.app_id}
                 />
             )
         })

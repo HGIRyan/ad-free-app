@@ -431,3 +431,13 @@ app.post('/user/appName', async (req, res) => {
     // console.log(getApp1)
     res.status(200).send(getApp)
 })
+
+app.delete(`/delete/app/:app_id`, async (req, res) =>{
+    let {app_id} = req.params
+    console.log(req.params)
+    console.log(app_id)
+    let db = req.app.get('db')
+    await db.deleteIndieApp([app_id])
+    console.log('DELETED')
+    res.sendStatus(200)
+})

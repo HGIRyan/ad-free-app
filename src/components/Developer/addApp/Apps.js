@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './app.css'
 import Slider from "react-slick";
 import Download from './../../../Assets/baseline-cloud_download-24px.svg'
+import axios from 'axios'
 
 class Apps extends Component {
     constructor() {
@@ -11,7 +12,11 @@ class Apps extends Component {
             longRead: true
         }
     }
-
+    deleteApp(){
+        let {app_id} = this.props
+        console.log(app_id)
+        axios.delete(`/delete/app/${app_id}`)
+    }
     render() {
         var settings = {
             dots: false,
@@ -54,6 +59,7 @@ class Apps extends Component {
                     </div>
                 }
                 {tags}
+                <button onClick={(e)=>{this.deleteApp()}}>DELETE</button>
             </div>
         )
     }
